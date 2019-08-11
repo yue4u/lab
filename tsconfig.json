@@ -6,7 +6,7 @@
                 "types/*"
             ]
         },
-        "module": "commonjs",
+        "module": "es6",
         "lib": [
             "es2020",
             "es2019",
@@ -19,7 +19,7 @@
         "noImplicitAny": true,
         "allowJs": false,
         "removeComments": true,
-        "target": "es6",
+        "target": "esnext",
         "jsx": "react",
         "skipLibCheck": true,
         "esModuleInterop": true,

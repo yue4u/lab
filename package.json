@@ -5,6 +5,12 @@
   "repository": "git@github.com:rainy-me/lab.git",
   "author": "rainy-me <github@rainy.me>",
   "license": "MIT",
+  "scripts": {
+    "dev": "parcel public/index.html"
+  },
+  "browserslist": [
+    "last 1 chrome versions"
+  ],
   "dependencies": {
     "lit-element": "^2.2.1",
     "typescript": "^3.5.3"
