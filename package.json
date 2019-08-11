@@ -1,0 +1,12 @@
+{
+  "name": "lab",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:rainy-me/lab.git",
+  "author": "rainy-me <github@rainy.me>",
+  "license": "MIT",
+  "dependencies": {
+    "lit-element": "^2.2.1",
+    "typescript": "^3.5.3"
+  }
+}
