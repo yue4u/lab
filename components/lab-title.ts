@@ -1,10 +1,19 @@
-import { LitElement, html, customElement } from "lit-element";
+import { css, html, c } from "../core";
 
-@customElement("lab-title")
-export class LabTitle extends LitElement {
-  render() {
-    return html`
-      <h1>Tiny Lab</h1>
-    `;
+const tag = "lab-title";
+
+const template = html`
+  <h1><slot /></h1>
+`;
+
+const style = css`
+  h1 {
+    color: #e91e63;
   }
-}
+`;
+
+export default c({
+  tag,
+  template,
+  style
+});
