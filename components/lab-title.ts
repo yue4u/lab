@@ -8,7 +8,7 @@ const template = html`
 
 const style = css`
   h1 {
-    color: #e91e63;
+    color: #fff;
   }
 `;
 

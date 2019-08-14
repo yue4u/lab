@@ -15,7 +15,9 @@
   "dependencies": {
     "@types/react": "^16.9.1",
     "@types/react-dom": "^16.8.5",
+    "css-doodle": "^0.7.2",
     "lit-element": "^2.2.1",
+    "parcel-bundler": "^1.12.3",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "typescript": "^3.5.3",

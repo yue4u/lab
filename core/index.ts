@@ -1,8 +1,8 @@
 import { CSSResult, TemplateResult, LitElement, html, css } from "lit-element";
 export { html, css, LitElement };
 
-type ElementScript = {
-  mounted(el: LitElement): void;
+export type ElementScript = {
+  mounted?(el: LitElement): void;
 };
 
 export type ElementBase = {
@@ -21,7 +21,7 @@ export function c(el: ElementBase) {
         console.log(`build ${el.tag}`);
       }
       firstUpdated() {
-        if (el.script) {
+        if (el.script && el.script.mounted) {
           el.script.mounted(this);
         }
       }

@@ -1,6 +1,25 @@
+$c1: #f3f9fb;
+$c2: #87c0cd;
+$c3: #226597;
+$c4: #113f67;
+
 html,
 body {
   margin: 0;
   border: 0;
   font-size: 14px;
+  background-color: #1d1d1d;
 }
+
+//html {
+//  height: 100%;
+//  background: repeating-linear-gradient(
+//      -30deg,
+//      transparent,
+//      transparent 100px,
+//      $c1 100px,
+//      $c1 101px
+//    ),
+//    repeating-linear-gradient(30deg, $c2, $c2 100px, $c1 100px, $c1 101px);
+//  background-color: $c2;
+//}

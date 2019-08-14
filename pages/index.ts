@@ -11,9 +11,12 @@ const style = css`
 
 const template = html`
   <main>
+    <!--
     <lab-title>Tiny Lab 😀 </lab-title>
     <lab-react></lab-react>
     <lab-vue></lab-vue>
+    -->
+    <lab-liquid></lab-liquid>
   </main>
 `;
 
