@@ -3,8 +3,13 @@ import "css-doodle";
 
 const style = css`
 .wrapper{
+    z-index: -100;
+    left:0;
+    top:0;
+    position:absolute;
     height: 100vh;
     overflow:hidden;
+    filter: drop-shadow(0 0 5px #000)
 }
 `;
 
@@ -37,7 +42,7 @@ const template = html`
         will-change: transform;
         animation: cycle @r(2s, 8s) linear infinite;
         animation-delay: -@r(100s);
-        background: @pick('#ffeafe', '#9ea9f0', '#ccc1ff','#ffeafe');
+        background: @pick('#ffeafe', '#9ea9f0', '#ccc1ff','#ffeafe', '#ffffff');
         border-radius:100%;
         box-shadow: @m3(0 0 calc(.5vmin + 5px) @pick('#ffeafe', '#9ea9f0', '#ccc1ff','#ffeafe'));
         --trans: scaleX(@r(.1, 5)) translateZ(105px);

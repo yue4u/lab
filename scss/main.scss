@@ -3,12 +3,15 @@ $c2: #87c0cd;
 $c3: #226597;
 $c4: #113f67;
 
+* {
+  box-sizing: border-box;
+}
 html,
 body {
   margin: 0;
   border: 0;
   font-size: 14px;
-  background-color: #1d1d1d;
+  background-color: #333;
 }
 
 //html {

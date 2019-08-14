@@ -7,6 +7,17 @@ const style = css`
   main {
     text-align: center;
   }
+  lab-wrapper {
+    position: absolute;
+    left: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    padding: 0 2rem;
+    font-size: 2rem;
+  }
 `;
 
 const template = html`
@@ -16,6 +27,9 @@ const template = html`
     <lab-react></lab-react>
     <lab-vue></lab-vue>
     -->
+    <lab-wrapper>
+      <lab-nav></lab-nav>
+    </lab-wrapper>
     <lab-liquid></lab-liquid>
   </main>
 `;
