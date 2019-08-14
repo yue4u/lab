@@ -16,6 +16,9 @@ c({
       margin: 0;
       filter: drop-shadow(0 0 2px #000);
     }
+    h2:hover {
+      text-decoration: underline;
+    }
   `
 });
 
@@ -31,10 +34,12 @@ const template = html`
 
 const style = css`
   lab-nav-item {
+    display: block;
     transition: 0.3s all ease-in-out;
+    cursor: pointer;
   }
   lab-nav-item:hover {
-    text-decoration: underline;
+    transform: translateX(10px);
   }
 `;
 

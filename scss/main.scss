@@ -1,8 +1,7 @@
-$c1: #f3f9fb;
-$c2: #87c0cd;
-$c3: #226597;
-$c4: #113f67;
-
+$c1: #ffeafe;
+$c2: #9ea9f0;
+$c3: #ccc1ff;
+$c4: #ffeafe;
 * {
   box-sizing: border-box;
 }
@@ -11,7 +10,9 @@ body {
   margin: 0;
   border: 0;
   font-size: 14px;
-  background-color: #333;
+  min-height: 100%;
+  width: 100%;
+  background: radial-gradient($c2, #000);
 }
 
 //html {
