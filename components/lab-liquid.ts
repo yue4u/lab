@@ -3,7 +3,7 @@ import "css-doodle";
 
 const style = css`
 .wrapper{
-    height: 40rem;
+    height: 100vh;
     overflow:hidden;
 }
 `;
