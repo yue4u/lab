@@ -71,7 +71,7 @@ export function diff(
     vOldChildren: vNode[],
     vNewChildren: vNode[]
   ): patch<ChildNode | Element> => {
-    let childPatches: patch<ChildNode>[] = [];
+    const childPatches: patch<ChildNode>[] = [];
 
     vOldChildren.forEach((vOldChild, i) => {
       const patch = diff(vOldChild, vNewChildren[i]);

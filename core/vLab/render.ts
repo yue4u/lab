@@ -1,5 +1,4 @@
 import { vNode, Node } from "./types";
-import { instanceOf } from "prop-types";
 
 export function renderChild(vNode: vNode): Node {
   if (typeof vNode === "string") {

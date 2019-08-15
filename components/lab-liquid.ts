@@ -1,4 +1,4 @@
-import { css, html, c, ElementScript } from "../core";
+import { css, html, c } from "../core";
 import "css-doodle";
 
 const style = css`
@@ -13,10 +13,10 @@ const style = css`
 }
 `;
 
-const script: ElementScript = {
-  mounted(el) {
-  }
-};
+// const script: ElementScript = {
+//   mounted(el) {
+//   }
+// };
 
 const template = html`
 <div class="wrapper">
@@ -70,6 +70,6 @@ const template = html`
 export default c({
   tag: "lab-liquid",
   style,
-  script,
+//  script,
   template
 });
