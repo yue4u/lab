@@ -44,6 +44,7 @@ const template = html`
         animation-delay: -@r(100s);
         background: @pick('#ffeafe', '#9ea9f0', '#ccc1ff', '#ffffff');
         border-radius:100%;
+        border: 1px solid #fff;
         box-shadow: @m3(0 0 calc(.5vmin + 5px) @pick('#ffeafe', '#9ea9f0', '#ccc1ff','#ffeafe'));
         --trans: scaleX(@r(.1, 5)) translateZ(105px);
         transform: rotateY(0) @var(--trans);
