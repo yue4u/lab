@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Switch, Route } from "react-router-dom";
 import history from "./history";
 import { Global, css, keyframes } from "@emotion/core";
@@ -78,9 +78,13 @@ export default function App() {
   const pathname = window.location.pathname.substr(1);
   let [name, setName] = useState(decodeURI(pathname));
 
+  const isfirstRender = useRef(true);
+
   useEffect(() => {
-    name = name.replace(/^\//, "");
-    history.push(`/${name}`);
+    if (!isfirstRender.current) {
+      name = name.replace(/^\//, "");
+      history.push(`/${name}`);
+    }
   }, [name]);
 
   return (
@@ -111,8 +115,8 @@ export default function App() {
         />
       </InputWrapper>
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/:name" component={Page} />
+        <Route exact path="/react-router-demo" component={Home} />
+        <Route path="/react-router-demo/:name" component={Page} />
       </Switch>
     </>
   );
