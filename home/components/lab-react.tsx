@@ -1,4 +1,4 @@
-import { html, c, LitElement } from "../../../packages/core";
+import { html, c, LitElement } from "../../packages/core";
 import React from "react";
 import ReactDOM from "react-dom";
 import ReactCounter from "./react-counter";

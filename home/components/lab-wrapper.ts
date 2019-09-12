@@ -1,4 +1,4 @@
-import { html, c } from "../../../packages/core";
+import { html, c } from "../../packages/core";
 
 c({
   tag: "lab-wrapper",

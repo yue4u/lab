@@ -1,0 +1,16 @@
+$c1: #ffeafe;
+$c2: #9ea9f0;
+$c3: #ccc1ff;
+$c4: #ffeafe;
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  border: 0;
+  font-size: 14px;
+  min-height: 100%;
+  width: 100%;
+  background: radial-gradient($c2, #000);
+}

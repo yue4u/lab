@@ -1,4 +1,4 @@
-import { css, html, c } from "../../../packages/core";
+import { css, html, c } from "../../packages/core";
 import "css-doodle";
 
 const style = css`

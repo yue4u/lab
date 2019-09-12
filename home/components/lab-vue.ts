@@ -1,4 +1,4 @@
-import { css, html, c, LitElement } from "../../../packages/core";
+import { css, html, c, LitElement } from "../../packages/core";
 
 import Vue from "vue";
 import App from "./vue-counter";

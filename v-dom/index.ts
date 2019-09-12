@@ -1,4 +1,4 @@
-import { createElement, render, mount, diff } from "../core/vLab";
+import { createElement, render, mount, diff } from "../packages/vLab";
 
 const App = (count: number) =>
   createElement("div", {
