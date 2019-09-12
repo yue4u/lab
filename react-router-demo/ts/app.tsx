@@ -75,16 +75,19 @@ const InputBox = styled.input`
 `;
 
 export default function App() {
-  const pathname = window.location.pathname.substr(1);
+  const pathnameList = window.location.pathname.split("/").filter(n => n);
+  const pathname = pathnameList.length > 1 ? pathnameList[1] : "";
   let [name, setName] = useState(decodeURI(pathname));
 
   const isfirstRender = useRef(true);
 
   useEffect(() => {
-    if (!isfirstRender.current) {
-      name = name.replace(/^\//, "");
-      history.push(`/${name}`);
+    if (isfirstRender.current) {
+      isfirstRender.current = false;
+      return;
     }
+    name = name.replace(/^\//, "");
+    history.push(`/${name}`);
   }, [name]);
 
   return (
@@ -115,8 +118,8 @@ export default function App() {
         />
       </InputWrapper>
       <Switch>
-        <Route exact path="/react-router-demo" component={Home} />
-        <Route path="/react-router-demo/:name" component={Page} />
+        <Route exact path="/" component={Home} />
+        <Route path="/:name" component={Page} />
       </Switch>
     </>
   );
