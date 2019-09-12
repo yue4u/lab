@@ -24,3 +24,5 @@ projectArray=(
 for project in ${projectArray[*]}; do
      build $project
 done
+
+cp _redirects dist
