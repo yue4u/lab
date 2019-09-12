@@ -74,6 +74,21 @@ const InputBox = styled.input`
   }
 `;
 
+const GithubLink = styled.a`
+  margin-top: 5rem;
+  display: inline-block;
+  transition: 0.3s all cubic-bezier(0.19, 1, 0.22, 1);
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 0 0 5px #ccc;
+  color: #fff;
+  background-color: #000;
+  &:hover {
+    background: #555;
+  }
+`;
+
 export default function App() {
   const pathnameList = window.location.pathname.split("/").filter(n => n);
   const pathname = pathnameList.length > 1 ? pathnameList[1] : "";
@@ -121,6 +136,12 @@ export default function App() {
         <Route exact path="/" component={Home} />
         <Route path="/:name" component={Page} />
       </Switch>
+      <GithubLink
+        href="https://github.com/rainy-me/lab/tree/master/react-router-demo"
+        rel="noopener nofollow"
+      >
+        Github
+      </GithubLink>
     </>
   );
 }
