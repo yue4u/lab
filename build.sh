@@ -26,3 +26,7 @@ for project in ${projectArray[*]}; do
 done
 
 cp _redirects dist
+
+# external
+
+find ./external -name "*.sh" -exec bash {} \;
