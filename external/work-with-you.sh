@@ -7,5 +7,6 @@ yarn
 yarn build
 
 cd ..
-mkdir ./dist/work-with-you
+[ ! -d "./dist/work-with-you" ] && mkdir ./dist/work-with-you
+rm -rf ./dist/work-with-you/*
 cp -r ./work-with-you/public/* ./dist/work-with-you
