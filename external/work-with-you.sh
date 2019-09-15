@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git clone git@github.com:rainy-me/work-with-you.git
+git clone https://github.com/rainy-me/lab.git
 cd ./work-with-you
 
 yarn
