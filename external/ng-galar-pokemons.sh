@@ -1,7 +1,8 @@
 #!/bin/bash
 
-git clone https://github.com/rainy-me/ng-galar-pokemons.git
+[ ! -d "ng-galar-pokemons" ] && git clone https://github.com/rainy-me/ng-galar-pokemons.git
 cd ./ng-galar-pokemons
+git pull origin master
 
 yarn
 yarn build
