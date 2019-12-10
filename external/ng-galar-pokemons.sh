@@ -4,6 +4,7 @@ git clone https://github.com/rainy-me/ng-galar-pokemons.git
 cd ./ng-galar-pokemons
 
 yarn
+yarn global add @angular/cli
 ng build --prod --deploy-url /ng-galar-pokemons/
 
 cd ..
