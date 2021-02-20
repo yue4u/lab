@@ -1,44 +1,29 @@
 {
-    "compilerOptions": {
-        "baseUrl": ".",
-        "paths": {
-            "*": [
-                "types/*"
-            ]
-        },
-        "module": "es6",
-        "lib": [
-            "es2020",
-            "es2019",
-            "es2018",
-            "es2017",
-            "es2016",
-            "es2015",
-            "dom"
-        ],
-        "noImplicitAny": true,
-        "allowJs": false,
-        "removeComments": true,
-        "target": "esnext",
-        "jsx": "react",
-        "skipLibCheck": true,
-        "esModuleInterop": true,
-        "allowSyntheticDefaultImports": true,
-        "experimentalDecorators": true,
-        "strict": true,
-        "forceConsistentCasingInFileNames": true,
-        "moduleResolution": "node",
-        "resolveJsonModule": true,
-        "noEmit": true,
-        "typeRoots": [
-            "src"
-        ]
-    },
-    "rules": {
-        "no-console": false,
-        "interface-name": [
-            true,
-            "never"
-        ]
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": ["esnext", "dom"],
+    "types": ["vite/client"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
     }
+  },
+  "include": [
+    "types/*.ts",
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "pages/**/*.ts",
+    "pages/**/*.d.ts",
+    "pages/**/*.tsx",
+    "pages/**/*.vue"
+  ]
 }
