@@ -9,7 +9,6 @@ export const style = css`
     font-size: 1.4rem;
     color: currentColor;
     font-weight: normal;
-    font-family: "Atomic Age", cursive;
     text-decoration: none;
     display: block;
   }

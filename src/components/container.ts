@@ -5,6 +5,11 @@ define({
     <lab-section-title>${title}</lab-section-title>
     <slot />
   `,
+  style: css`
+    lab-section-title {
+      font-family: "Atomic Age", cursive;
+    }
+  `,
 })("lab-section");
 
 define({
