@@ -1,17 +1,26 @@
 type routerChange = (path: Location) => void;
+type LabPageType = "demos" | "games" | "tools";
 
 export const routes = new Map<string, { component: Function; tag: string }>();
+export const links: Record<
+  LabPageType,
+  {
+    name: string;
+    slug: string;
+  }[]
+> = {
+  demos: [],
+  games: [],
+  tools: [],
+};
 
-export const links: {
-  name: string;
-  slug: string;
-}[] = Object.entries(import.meta.glob("../pages/**/index.ts*")).map(
+Object.entries(import.meta.glob("../pages/**/index.ts*")).map(
   ([path, component]) => {
     const [type, name] = path.replace("../pages/", "").split("/");
     const slug = ["", type, name].join("/");
     const tag = `lab-` + name;
     routes.set(slug, { tag, component });
-    return { slug, name };
+    links[type as LabPageType].push({ name, slug });
   }
 );
 

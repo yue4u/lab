@@ -6,6 +6,7 @@ import { diff } from "./diff";
 export const style = css`
   span {
     font-size: 2rem;
+    color: #000;
     background-color: aquamarine;
     border: 1px solid hotpink;
     height: 3rem;

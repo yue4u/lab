@@ -7,7 +7,7 @@ export const style = css`
     display: inline-block;
     width: 600px;
     height: 600px;
-    box-shadow: 0 0 1rem #ccc;
+    box-shadow: 0 0 1rem #000;
   }
 `;
 

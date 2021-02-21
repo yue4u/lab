@@ -4,7 +4,7 @@ export type Script = {
 
 export type Component = {
   style?: string;
-  template?: <T>(props: T) => string;
+  template?: (props: any) => string;
   script?: Script;
 };
 

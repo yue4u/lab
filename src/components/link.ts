@@ -6,16 +6,15 @@ export const template = ({ to }: { to: string }) =>
 
 export const style = css`
   a {
-    transition: 0.3s all ease-in-out;
+    font-size: 1.4rem;
     color: currentColor;
     font-weight: normal;
     font-family: "Atomic Age", cursive;
-  }
-  a:visited {
-    color: currentColor;
+    text-decoration: none;
+    display: block;
   }
   a:hover {
-    color: currentColor;
+    opacity: 0.8;
   }
 `;
 

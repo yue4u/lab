@@ -1,9 +1,21 @@
 import { css, html } from "@/src/core";
 
-export const template = () => html`<h1><slot /></h1>`;
+export const template = () => html`<slot />`;
 
 export const style = css`
-  h1 {
-    color: red;
+  :host {
+    display: block;
+    font-size: 4rem;
+    margin-top: 0;
+    padding: 10px 1rem;
+    border-bottom: 2px solid #333;
+  }
+  :host::before {
+    content: ".";
+    color: skyblue;
+  }
+  :host::after {
+    content: ".";
+    color: hotpink;
   }
 `;

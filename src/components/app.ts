@@ -1,7 +1,11 @@
 import { html } from "@/src/core";
 
 export const template = () => html`
-  <lab-title>Lab.</lab-title>
-  <lab-nav>demo</lab-nav>
-  <lab-view></lab-view>
+  <lab-link to="/">
+    <lab-title>Lab.</lab-title>
+  </lab-link>
+  <lab-container>
+    <lab-nav></lab-nav>
+    <lab-view></lab-view>
+  </lab-container>
 `;
