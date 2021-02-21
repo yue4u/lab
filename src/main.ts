@@ -1,10 +1,10 @@
-const modules: Record<string, Function> = import.meta.glob(
-  "../pages/**/index.ts*"
-);
+import { define } from "./core";
+const components = import.meta.globEager("./components/*.ts");
 
-Object.entries(modules).forEach(async ([path, defineFn]) => {
-  const name = `lab-` + path.split("/").reverse()[1];
-  (await defineFn()).default(name);
-  const view = document.createElement(name);
-  document.querySelector("#app")?.appendChild(view);
+Object.entries(components).forEach(async ([path, exports]) => {
+  const name = `lab-` + path.split("/").reverse()[0].split(".")[0];
+  define(exports)(name);
 });
+
+const view = document.createElement("lab-app");
+document.querySelector("#app")?.replaceWith(view);

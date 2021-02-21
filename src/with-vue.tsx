@@ -1,7 +1,7 @@
 import { createApp } from "vue";
-import { define } from "./with-define";
 
-export const withVue = (element: Parameters<typeof createApp>[0]) =>
-  define((root) => {
+export const withVue = (element: Parameters<typeof createApp>[0]) => ({
+  render(root: HTMLElement) {
     createApp(element).mount(root);
-  });
+  },
+});
