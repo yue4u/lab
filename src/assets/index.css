@@ -13,3 +13,13 @@ a {
 * {
   box-sizing: border-box;
 }
+
+input,
+textarea {
+  color: #eee;
+  outline: none;
+  background: transparent;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}

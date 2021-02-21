@@ -5,11 +5,7 @@ define({
     <lab-section-title>${title}</lab-section-title>
     <slot />
   `,
-  style: css`
-    lab-section-title {
-      font-family: "Atomic Age", cursive;
-    }
-  `,
+  style: css``,
 })("lab-section");
 
 define({
@@ -29,6 +25,14 @@ define({
       display: block;
       font-size: 3rem;
       margin: 2rem 0;
+      font-size: 2.4rem;
+      transition: 0.2s all ease-in-out;
+      color: #eee;
+      font-family: "Atomic Age", cursive;
+      text-shadow: 2px 2px 0 #607d8b88;
+    }
+    lab-section-title:hover {
+      text-shadow: 5px 2px 0 #607d8b88;
     }
   `,
 })("lab-section-title");
