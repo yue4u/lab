@@ -1,6 +1,10 @@
 import { html, css } from "@/src/core";
+import { links } from "@/src/router";
 
-export const template = html`<h2><slot /></h2> `;
+export const template = () => html`<h2></h2>
+  ${links.map(
+    (link) => html`<lab-link to="${link.slug}">${link.name}</lab-link>`
+  )} `;
 
 export const style = css`
   h2 {
@@ -15,5 +19,8 @@ export const style = css`
   }
   h2:hover {
     text-decoration: underline;
+  }
+  :host {
+    display: grid;
   }
 `;

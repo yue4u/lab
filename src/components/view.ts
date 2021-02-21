@@ -1,18 +1,27 @@
-import { Render, define } from "@/src/core";
+import { Script, define } from "@/src/core";
+import { router, routes } from "@/src/router";
 
-const modules: Record<string, Function> = import.meta.glob(
-  "../../pages/**/index.ts*"
-);
-
-export const render: Render = (el) => {
-  Object.entries(modules).forEach(async ([path, component]) => {
-    const [type, name] = path.replace("../../pages/", "").split("/");
-    const slug = ["", type, name].join("/");
-    if (window.location.pathname === slug) {
-      const tag = `lab-` + name;
+export const script: Script = {
+  onMount(el) {
+    const onChange = async (l: Location) => {
+      const match = routes.get(l.pathname);
+      if (!match) {
+        if (el.children.length) {
+          el.children[0].remove();
+        }
+        return;
+      }
+      const { component, tag } = match;
       define(await component())(tag);
       const view = document.createElement(tag);
-      el.appendChild(view);
-    }
-  });
+      if (el.children.length) {
+        el.children[0].replaceWith(view);
+      } else {
+        el.appendChild(view);
+      }
+    };
+
+    onChange(window.location);
+    router.listen(onChange);
+  },
 };

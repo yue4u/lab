@@ -1,15 +1,16 @@
-export type Render = (el: HTMLElement) => void;
+export type Script = {
+  onMount?(root: ShadowRoot): void;
+};
 
-export const define = ({
-  style,
-  template,
-  render,
-}: {
+export type Component = {
   style?: string;
-  template?: string;
-  render?: (el: HTMLElement) => void;
-}) => (name: string) => {
-  console.log(name);
+  template?: <T>(props: T) => string;
+  script?: Script;
+};
+
+export const define = ({ style, template, script }: Component) => (
+  name: string
+) => {
   if (customElements.get(name)) {
     return;
   }
@@ -28,19 +29,38 @@ export const define = ({
         }
         if (template) {
           const templateEl = document.createElement("template");
-          templateEl.innerHTML = template;
+          const attributes = Object.values(this.attributes).reduce(
+            (acc, curr) => {
+              const { name, value } = curr;
+              return {
+                ...acc,
+                [name]: value,
+              };
+            },
+            {}
+          );
+          templateEl.innerHTML = template(attributes);
           shadowRoot.appendChild(templateEl.content);
         }
-        if (render) {
-          render(shadowRoot as any);
+        if (script?.onMount) {
+          script.onMount(shadowRoot);
         }
       }
     }
   );
 };
 
-export function raw(strings: TemplateStringsArray) {
-  return strings.raw[0];
+export function raw(templateString: TemplateStringsArray, ...rest: any[]) {
+  return (
+    templateString[0] +
+    rest
+      .map((arg, i) => {
+        const next = templateString[1 + i];
+        const content = Array.isArray(arg) ? arg.join("") : arg;
+        return content + (next ? next : "");
+      })
+      .join("")
+  );
 }
 
 export const html = raw;

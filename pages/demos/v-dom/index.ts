@@ -1,4 +1,4 @@
-import { css, Render } from "@/src/core";
+import { css, Script } from "@/src/core";
 import { createElement } from "./createElement";
 import { render as renderV, mount } from "./render";
 import { diff } from "./diff";
@@ -34,18 +34,20 @@ const App = (count: number) =>
     ],
   });
 
-export const render: Render = (root) => {
-  let el = document.createElement("div");
-  root.appendChild(el);
-  let count = 21;
-  let vApp = App(count);
-  const app = renderV(vApp);
-  let rootEl = mount(app, el);
-  setInterval(() => {
-    count = Math.floor(Math.random() * 50);
-    const vNewApp = App(count);
-    const patch = diff(vApp, vNewApp);
-    rootEl = patch(rootEl);
-    vApp = vNewApp;
-  }, 1000);
+export const script: Script = {
+  onMount(root) {
+    let el = document.createElement("div");
+    root.appendChild(el);
+    let count = 21;
+    let vApp = App(count);
+    const app = renderV(vApp);
+    let rootEl = mount(app, el);
+    setInterval(() => {
+      count = Math.floor(Math.random() * 50);
+      const vNewApp = App(count);
+      const patch = diff(vApp, vNewApp);
+      rootEl = patch(rootEl);
+      vApp = vNewApp;
+    }, 1000);
+  },
 };

@@ -1,5 +1,7 @@
-import { define } from "./core";
-const components = import.meta.globEager("./components/*.ts");
+import { define, Component } from "./core";
+const components: Record<string, Component> = import.meta.globEager(
+  "./components/*.ts"
+);
 
 Object.entries(components).forEach(async ([path, exports]) => {
   const name = `lab-` + path.split("/").reverse()[0].split(".")[0];
