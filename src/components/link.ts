@@ -5,7 +5,7 @@ export const template = ({ to }: { to: string }) =>
   html`<a href="${to}"><slot /></a>`;
 
 export const style = css`
-  a {
+  lab-link {
     font-size: 1.4rem;
     color: currentColor;
     font-weight: normal;
@@ -13,7 +13,7 @@ export const style = css`
     text-decoration: none;
     display: block;
   }
-  a:hover {
+  lab-link:hover {
     opacity: 0.8;
   }
 `;

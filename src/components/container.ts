@@ -10,7 +10,7 @@ define({
 define({
   template: () => html`<slot />`,
   style: css`
-    :host {
+    lab-grid {
       display: grid;
     }
   `,
@@ -19,7 +19,7 @@ define({
 define({
   template: () => html`<slot />`,
   style: css`
-    :host {
+    lab-section-title {
       text-transform: capitalize;
       display: block;
       font-size: 3rem;
@@ -28,10 +28,10 @@ define({
   `,
 })("lab-section-title");
 
-export const template = () => html` <slot /> `;
+export const template = () => html``;
 
 export const style = css`
-  :host {
+  lab-container {
     display: block;
     margin: 0 2rem;
   }

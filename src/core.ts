@@ -21,12 +21,7 @@ export const define = ({ style, template, script }: Component) => (
         super();
       }
       connectedCallback() {
-        const shadowRoot = this.attachShadow({ mode: "open" });
-        if (style) {
-          const styleEl = document.createElement("style");
-          styleEl.innerHTML = style;
-          shadowRoot.appendChild(styleEl);
-        }
+        // const shadowRoot = this.attachShadow({ mode: "open" });
         if (template) {
           const templateEl = document.createElement("template");
           const attributes = Object.values(this.attributes).reduce(
@@ -39,11 +34,22 @@ export const define = ({ style, template, script }: Component) => (
             },
             {}
           );
-          templateEl.innerHTML = template(attributes);
-          shadowRoot.appendChild(templateEl.content);
+
+          let content = template(attributes);
+          if (content.includes(`<slot />`)) {
+            content = content.replace(`<slot />`, this.innerHTML);
+            this.innerHTML = "";
+          }
+          templateEl.innerHTML = content;
+          this.appendChild(templateEl.content);
+        }
+        if (style) {
+          const styleEl = document.createElement("style");
+          styleEl.innerHTML = style;
+          this.appendChild(styleEl);
         }
         if (script?.onMount) {
-          script.onMount(shadowRoot);
+          script.onMount(this as any);
         }
       }
     }

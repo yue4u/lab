@@ -5,7 +5,7 @@ export const template = () => {
   return html`
     ${Object.entries(links).map(
       ([type, pages]) =>
-        html` <lab-section title=${type}>
+        html`<lab-section title=${type}>
           ${Object.values(pages).map(
             (page) => html`<lab-link to="${page.slug}">${page.name}</lab-link>`
           )}
@@ -15,7 +15,7 @@ export const template = () => {
 };
 
 export const style = css`
-  :host {
+  lab-nav {
     display: block;
     margin-bottom: 2rem;
   }

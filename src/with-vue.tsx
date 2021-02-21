@@ -6,7 +6,9 @@ export const withVue = (
 ): Component => ({
   script: {
     onMount(root) {
-      createApp(element).mount(root as any);
+      const el = document.createElement("div");
+      root.appendChild(el);
+      createApp(element).mount(el);
     },
   },
 });
