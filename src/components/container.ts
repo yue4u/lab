@@ -41,6 +41,16 @@ export const template = () => html``;
 
 export const style = css`
   lab-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    margin: 0 2rem;
+  }
+  lab-view {
+    margin-top: 2rem;
+    display: block;
+  }
+  @media screen and (max-width: 680px) {
     display: block;
     margin: 0 2rem;
   }

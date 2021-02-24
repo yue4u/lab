@@ -1,4 +1,4 @@
-import { Script, define } from "@/src/core";
+import { Script, define, css } from "@/src/core";
 import { router, routes } from "@/src/router";
 
 export const script: Script = {
