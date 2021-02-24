@@ -51,7 +51,9 @@ export const style = css`
     display: block;
   }
   @media screen and (max-width: 680px) {
-    display: block;
-    margin: 0 2rem;
+    lab-container {
+      display: block;
+      margin: 0 2rem;
+    }
   }
 `;

@@ -18,7 +18,7 @@ export const style = css`
   lab-nav {
     display: block;
     margin-bottom: 2rem;
-    position: sticky;
-    top: 0;
+    /* position: sticky; */
+    /* top: 0; */
   }
 `;
