@@ -14,9 +14,9 @@ export const links: Record<
   tools: [],
 };
 
-Object.entries(import.meta.glob("../pages/**/index.ts*")).map(
+Object.entries(import.meta.glob("../projects/**/index.ts*")).map(
   ([path, component]) => {
-    const [type, name] = path.replace("../pages/", "").split("/");
+    const [type, name] = path.replace("../projects/", "").split("/");
     const slug = ["", type, name].join("/");
     const tag = `lab-` + name;
     routes.set(slug, { tag, component });

@@ -16,7 +16,6 @@ import { ref, computed, watch } from 'vue'
 import { randomInt } from '@/lib'
 const key = 'lab:tn';
 const text = ref(localStorage.getItem(key) || "");
-const separator = ref(" ")
 const offBit = ref(1)
 const noise = ref(5)
 const rate = ref(30)

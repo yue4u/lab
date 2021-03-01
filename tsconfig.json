@@ -21,9 +21,9 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "pages/**/*.ts",
-    "pages/**/*.d.ts",
-    "pages/**/*.tsx",
-    "pages/**/*.vue"
+    "projects/**/*.ts",
+    "projects/**/*.d.ts",
+    "projects/**/*.tsx",
+    "projects/**/*.vue"
   ]
 }
