@@ -29,6 +29,7 @@ const listeners = new Set<routerChange>();
 export const router = {
   push(path: string) {
     history.pushState({}, "", path);
+    window.doodle.update();
     listeners.forEach((l) => l(window.location));
   },
   listen(fn: routerChange) {

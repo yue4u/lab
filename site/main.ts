@@ -1,5 +1,7 @@
 import { define, Component } from "./core";
 import "./assets/index.css";
+import "css-doodle";
+
 const components: Record<string, Component> = import.meta.globEager(
   "./components/*.ts"
 );

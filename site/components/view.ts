@@ -4,7 +4,8 @@ import { router, routes } from "@/site/router";
 export const script: Script = {
   onMount(el) {
     const onChange = async (l: Location) => {
-      const match = routes.get(l.pathname);
+      const [_, type, name] = l.pathname.split("/");
+      const match = routes.get(["", type, name].join("/"));
       if (!match) {
         if (el.children.length) {
           el.children[0].remove();

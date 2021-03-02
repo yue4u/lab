@@ -10,6 +10,7 @@
     "@vitejs/plugin-react-refresh": "^1.1.0",
     "@vitejs/plugin-vue": "^1.1.4",
     "@vue/compiler-sfc": "^3.0.5",
-    "vite": "^2.0.1"
+    "vite": "^2.0.1",
+    "css-doodle": "^0.7.2"
   }
 }
