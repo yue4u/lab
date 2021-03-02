@@ -114,7 +114,7 @@ function App() {
         value={data}
         onChange={(e) => setData(e.target.value)}
         cols={30}
-        rows={10}
+        rows={30}
       />
     </Parent>
   );
@@ -185,6 +185,8 @@ const Parent = styled.div`
   }
   textarea {
     grid-column: span 10;
+    border-radius: 0;
+    border-color: #888;
   }
 `;
 export default App;
