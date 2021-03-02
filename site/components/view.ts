@@ -1,5 +1,5 @@
-import { Script, define, css } from "@/src/core";
-import { router, routes } from "@/src/router";
+import { Script, define } from "@/site/core";
+import { router, routes } from "@/site/router";
 
 export const script: Script = {
   onMount(el) {

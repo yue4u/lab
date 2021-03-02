@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 import ReactDOM from "react-dom";
-import type { Component } from "@/src/core";
+import type { Component } from "@/site/core";
 
 export const withReact = (element: ReactElement): Component => ({
   script: {

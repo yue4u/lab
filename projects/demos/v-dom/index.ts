@@ -1,4 +1,4 @@
-import { css, Script } from "@/src/core";
+import { css, Script } from "@/site/core";
 import { createElement } from "./createElement";
 import { render as renderV, mount } from "./render";
 import { diff } from "./diff";

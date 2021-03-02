@@ -1,7 +1,7 @@
 export function createLocalStorage<T = any>(key: string) {
   return {
     get() {
-      return localStorage.getItem(key)
+      return localStorage.getItem(key);
     },
     set(data: string) {
       return localStorage.setItem(key, data);
@@ -13,4 +13,10 @@ export function createLocalStorage<T = any>(key: string) {
       localStorage.setItem(key, JSON.stringify(data));
     },
   };
+}
+
+export function randomInt(min = 0, max = 1) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }

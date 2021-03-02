@@ -1,4 +1,4 @@
-import type { Component } from "@/src/core";
+import type { Component } from "@/site/core";
 import { createApp } from "vue";
 
 export const withVue = (

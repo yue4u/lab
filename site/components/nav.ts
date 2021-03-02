@@ -1,5 +1,5 @@
-import { html, css } from "@/src/core";
-import { links } from "@/src/router";
+import { html, css } from "@/site/core";
+import { links } from "@/site/router";
 
 export const template = () => {
   return html`

@@ -13,7 +13,7 @@
 
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue'
-import { randomInt } from '@/lib'
+import { randomInt } from '@/site/utils'
 const key = 'lab:tn';
 const text = ref(localStorage.getItem(key) || "");
 const offBit = ref(1)

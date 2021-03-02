@@ -8,7 +8,10 @@ export default defineConfig({
   plugins: [vue(), reactRefresh()],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "."),
+      "@": path.resolve(__dirname, ".."),
     },
+  },
+  build: {
+    outDir: path.resolve(__dirname, "../dist"),
   },
 });

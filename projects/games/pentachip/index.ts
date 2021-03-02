@@ -1,6 +1,6 @@
 import Pentachip from "./pentachip";
 import { PlayerIndex } from "./type";
-import { css, Script } from "@/src/core";
+import { css, Script } from "@/site/core";
 
 export const style = css`
   canvas {

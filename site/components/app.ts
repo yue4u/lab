@@ -1,4 +1,4 @@
-import { html } from "@/src/core";
+import { html } from "@/site/core";
 
 export const template = () => html`
   <lab-link to="/">

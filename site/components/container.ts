@@ -1,4 +1,4 @@
-import { html, css, define } from "@/src/core";
+import { html, css, define } from "@/site/core";
 
 define({
   template: ({ title }: { title: string }) => html`

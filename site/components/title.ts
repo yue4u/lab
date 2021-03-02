@@ -1,4 +1,4 @@
-import { css, html } from "@/src/core";
+import { css, html } from "@/site/core";
 
 export const template = () => html`<slot />`;
 

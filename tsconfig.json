@@ -16,11 +16,11 @@
     }
   },
   "include": [
-    "types/*.ts",
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
+    "site/types/*.ts",
+    "site/**/*.ts",
+    "site/**/*.d.ts",
+    "site/**/*.tsx",
+    "site/**/*.vue",
     "projects/**/*.ts",
     "projects/**/*.d.ts",
     "projects/**/*.tsx",

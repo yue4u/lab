@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Block } from "./Block";
 import styled from "@emotion/styled";
-import { createLocalStorage } from "@/src/utils";
+import { createLocalStorage } from "@/site/utils";
 
 const init = `# キーパートナー（Key Partners）
 KP1

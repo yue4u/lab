@@ -1,5 +1,5 @@
-import { html, css, Script } from "@/src/core";
-import { router } from "@/src/router";
+import { html, css, Script } from "@/site/core";
+import { router } from "@/site/router";
 
 export const template = ({ to }: { to: string }) =>
   html`<a href="${to}"><slot /></a>`;
