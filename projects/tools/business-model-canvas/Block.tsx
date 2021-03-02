@@ -71,7 +71,7 @@ const BlockItem = styled.li`
 `;
 
 const BlockItemText = styled.span`
-  background-color: #ff980026;
+  background-color: #ff980078;
   border-left: 3px solid orange;
   padding: 5px;
   margin-bottom: 10px;
