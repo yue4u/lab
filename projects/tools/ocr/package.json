@@ -1,0 +1,11 @@
+{
+  "name": "digicam-questionnaire",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "^11.1.5",
+    "@emotion/styled": "^11.1.5",
+    "react-dropzone": "^11.3.1",
+    "tesseract.js": "^2.1.4"
+  }
+}
