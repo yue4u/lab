@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "yarn workspace site dev",
     "build": "yarn workspace site build",
-    "serve": "yarn workspace site serve"
+    "serve": "yarn workspace site serve",
+    "postinstall": "patch-package"
   },
   "private": true,
   "workspaces": [
@@ -14,6 +15,7 @@
     "projects/tools/*"
   ],
   "dependencies": {
+    "patch-package": "^6.4.6",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "vue": "^3.0.5"
