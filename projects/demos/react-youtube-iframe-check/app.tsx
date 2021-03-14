@@ -62,6 +62,8 @@ function usePlayer(id: string) {
           },
         },
       });
+
+      return () => clearInterval(intervalId);
     }, 1000);
   }, []);
   return { state, error };
