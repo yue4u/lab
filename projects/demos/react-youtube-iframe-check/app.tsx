@@ -51,12 +51,16 @@ function usePlayer(id: string) {
             setError(true);
           },
           onStateChange(event) {
+            /**
+             * @see https://developers.google.com/youtube/iframe_api_reference#onStateChange
+             */
             [
               () => setState("unstarted"),
               () => setState("ended"),
               () => setState("playing"),
               () => setState("paused"),
               () => setState("buffering"),
+              () => {},
               () => setState("videocued"),
             ][event.data + 1]();
           },
