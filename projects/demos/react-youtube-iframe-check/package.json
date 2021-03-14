@@ -1,0 +1,9 @@
+{
+  "name": "react-youtube-iframe-check",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/youtube": "^0.0.42"
+  }
+}
