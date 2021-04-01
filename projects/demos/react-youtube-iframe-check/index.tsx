@@ -1,8 +1,7 @@
 import React from "react";
 import { Script } from "@/site/core";
-import App from "./app";
-
 import { withReact } from "@/site/with-react";
+import App from "./app";
 
 const { script: reactScript } = withReact(<App />);
 
