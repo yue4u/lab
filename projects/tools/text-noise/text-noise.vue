@@ -90,5 +90,6 @@ watch(text, () => {
 .result {
   margin: 2rem 0;
   white-space: pre-wrap;
+  word-break: break-all;
 }
 </style>
