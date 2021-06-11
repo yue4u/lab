@@ -1,0 +1,9 @@
+{
+  "name": "extract-image-from-pdf",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "license": "MIT",
+  "devDependencies": {
+    "pdfjs-dist": "^2.8.335"
+  }
+}
