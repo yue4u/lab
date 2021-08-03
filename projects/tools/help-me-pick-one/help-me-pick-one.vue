@@ -13,26 +13,26 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, computed } from 'vue'
-let items = reactive<string[]>([]);
+import { ref, computed } from 'vue'
+let items = ref<string[]>([]);
 const message = computed(() => {
-  if (!items.length){
+  if (!items.value.length){
     return `Nothing to pick from. Nice`
   }
-  if (items.length>1){
-    return `${items.length} remains...`
+  if (items.value.length>1){
+    return `${items.value.length} remains...`
   }
-  return `you picked ${items[0]} !`
+  return `you picked ${items.value[0]} !`
 })
 
 const readFromClipboard = async ()=>{
   const text = await navigator.clipboard.readText()
   text.split('\n').filter(Boolean).forEach(item=>{
-    items.push(item)
+    items.value.push(item)
   })
 }
 const clearAll = ()=>{
-  items.splice(0)
+  items.value.splice(0)
 }
 </script>
 
