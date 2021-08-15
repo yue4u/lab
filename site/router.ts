@@ -1,7 +1,9 @@
 type routerChange = (path: Location) => void;
 type LabPageType = "demos" | "games" | "tools";
 
-export const routes = new Map<string, { component: Function; tag: string }>();
+export const routes = new Map<string, { component: Function; tag: string }>([
+  ["/", { tag: "lab-home", component: () => import("./components/home") }],
+]);
 export const links: Record<
   LabPageType,
   {

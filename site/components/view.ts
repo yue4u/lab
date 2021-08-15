@@ -3,24 +3,29 @@ import { router, routes } from "@/site/router";
 
 export const script: Script = {
   onMount(el) {
-    const onChange = async (l: Location) => {
-      const placeholder = document.createElement("lab-loading");
-
+    const view = (tag: string) => {
+      const route = document.createElement(tag);
       if (el.children.length) {
-        el.children[0].replaceWith(placeholder);
+        el.children[0].replaceWith(route);
       } else {
-        el.appendChild(placeholder);
+        el.appendChild(route);
       }
-      const [_, type, name] = l.pathname.split("/");
-      const match = routes.get(["", type, name].join("/"));
-      if (!match) {
-        placeholder.replaceWith(document.createElement("lab-404"));
-        return;
-      }
-      const { component, tag } = match;
-      define(await component())(tag);
-      const view = document.createElement(tag);
-      placeholder.replaceWith(view);
+      return route;
+    };
+
+    const onChange = async (l: Location) => {
+      const tag = async () => {
+        const match = routes.get(l.pathname);
+        if (!match) return "lab-404";
+
+        const { component, tag } = match;
+        if (customElements.get(tag)) return tag;
+
+        view("lab-loading");
+        define(await component())(tag);
+        return tag;
+      };
+      await tag().then(view);
     };
 
     onChange(window.location);
