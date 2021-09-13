@@ -26,7 +26,8 @@
 import { onMounted, ref } from 'vue'
 import type { ChangeEventHandler } from 'react'
 import { createFFmpeg } from '@ffmpeg/ffmpeg';
-import corePath from '@ffmpeg/core/dist/ffmpeg-core.js?url'
+// not work for prod
+// import corePath from '@ffmpeg/core/dist/ffmpeg-core.js?url'
 
 const log = ref<string[]>([])
 const w = ref(0)
@@ -36,7 +37,7 @@ const vid = ref<HTMLVideoElement | null>(null);
 const colors = ref<string[]>([])
 
 const ffmpeg = createFFmpeg({
-  corePath, logger({ message }) {
+  corePath: 'https://unpkg.com/@ffmpeg/core@0.10.0/dist/ffmpeg-core.js', logger({ message }) {
     log.value.push(message)
     log.value = log.value.slice(-10)
   }
