@@ -84,14 +84,14 @@ const handleFile: ChangeEventHandler<HTMLInputElement> = async (event) => {
     // const n = performance.now();
     // console.log(`render in ${n - l}`)
     // l = n;
-    const memo = cache.get(count);
-    if (memo) {
-      colors.value = memo;
+    const cached = cache.get(count);
+    if (cached) {
+      colors.value = cached;
       return
     }
-
+    const frameImg = `${count}.png`;
     const src = URL.createObjectURL(
-      new Blob([ffmpeg.FS('readFile', `${count}.png`).buffer])
+      new Blob([ffmpeg.FS('readFile', frameImg).buffer])
     )
     // debugSrc.value = src;
 
@@ -108,6 +108,7 @@ const handleFile: ChangeEventHandler<HTMLInputElement> = async (event) => {
       return ctx.getImageData(x, y, 1, 1).data.join(',')
     })
     cache.set(count, rgbaArray)
+    ffmpeg.FS('unlink', frameImg)
     colors.value = rgbaArray;
   }
 
