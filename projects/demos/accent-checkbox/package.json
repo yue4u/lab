@@ -1,0 +1,10 @@
+{
+  "name": "accent-checkbox",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "license": "MIT",
+  "dependencies": {
+    "@ffmpeg/core": "^0.10.0",
+    "@ffmpeg/ffmpeg": "^0.10.1"
+  }
+}

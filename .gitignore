@@ -3,3 +3,4 @@ dist
 .pre
 *.log
 __TODO__
+tmp

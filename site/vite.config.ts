@@ -10,6 +10,17 @@ export default defineConfig({
   plugins: [
     vue(),
     reactRefresh(),
+    {
+      name: "configure-server",
+
+      configureServer(server) {
+        server.middlewares.use((_, res, next) => {
+          res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
+          res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
+          next();
+        });
+      },
+    },
     svelte({
       preprocess: sveltePreprocess(),
     }),
