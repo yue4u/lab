@@ -1,7 +1,7 @@
 [build.environment]
   NPM_FLAGS = "--version"
 [build]
-  command = "npx pnpm install --store=node_modules/.pnpm-store && npx pnpm build --filter site"
+  command = "npx pnpm install --store=node_modules/.pnpm-store && cd site && npm run build"
 
 [[headers]]
 for = "/*"
