@@ -1,0 +1,5 @@
+packages":
+  - "site"
+  - "projects/demos/*"
+  - "projects/games/*"
+  - "projects/tools/*"

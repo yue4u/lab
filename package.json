@@ -2,18 +2,12 @@
   "name": "my-vue-app",
   "version": "0.0.0",
   "scripts": {
-    "dev": "yarn workspace site dev",
-    "build": "yarn workspace site build",
-    "serve": "yarn workspace site serve",
-    "postinstall": "patch-package"
+    "dev": "pnpm dev --filter site",
+    "build": "pnpm build --filter site",
+    "serve": "pnpm serve --filter site",
+    "preinstall": "npx -y only-allow pnpm"
   },
   "private": true,
-  "workspaces": [
-    "site",
-    "projects/demos/*",
-    "projects/games/*",
-    "projects/tools/*"
-  ],
   "dependencies": {
     "patch-package": "^6.4.7",
     "react": "^17.0.2",

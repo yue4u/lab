@@ -4,7 +4,7 @@
   "main": "index.ts",
   "license": "MIT",
   "dependencies": {
-    "@emotion/core": "^11.0.0",
+    "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",
     "@types/history": "^4.7.3",
     "@types/react-router-dom": "^4.3.5",
