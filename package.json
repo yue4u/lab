@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "pnpm dev --filter site",
-    "build": "pnpm build --filter site",
+    "build": "npx pnpm build --filter site",
     "serve": "pnpm serve --filter site",
     "preinstall": "npx -y only-allow pnpm"
   },
