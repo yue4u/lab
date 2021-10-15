@@ -2,9 +2,7 @@
   "name": "digicam-questionnaire",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "postinstall": "patch-package"
-  },
+  "scripts": {},
   "dependencies": {
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",

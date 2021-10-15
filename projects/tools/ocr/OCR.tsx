@@ -1,6 +1,8 @@
 import React, { useCallback, useState, useEffect, useMemo } from "react";
 import { useDropzone } from "react-dropzone";
 import { createWorker } from "tesseract.js";
+import workerPath from "tesseract.js/dist/worker.min.js?url";
+import corePath from "@/node_modules/.pnpm/tesseract.js-core@2.2.0/node_modules/tesseract.js-core/tesseract-core.wasm.js?url";
 import styled from "@emotion/styled";
 
 export default function OCR() {
@@ -13,6 +15,8 @@ export default function OCR() {
 
   const worker = useMemo(() => {
     return createWorker({
+      workerPath,
+      corePath,
       logger: ({ status, progress }) => {
         setStatus(status);
         setProgress(((progress * 100) | 0) + "%");
