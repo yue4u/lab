@@ -38,6 +38,14 @@ importers:
       '@ffmpeg/core': 0.10.0
       '@ffmpeg/ffmpeg': 0.10.1
 
+  projects/demos/collinear-points:
+    specifiers:
+      '@j-t-mcc/vue3-chartjs': ^1.3.0
+      chart.js: ^3.7.1
+    dependencies:
+      '@j-t-mcc/vue3-chartjs': 1.3.0_chart.js@3.7.1+vue@3.2.18
+      chart.js: 3.7.1
+
   projects/demos/react-router:
     specifiers:
       '@emotion/react': ^11.1.5
@@ -521,6 +529,16 @@ packages:
       resolve-url: 0.2.1
     dev: false
 
+  /@j-t-mcc/vue3-chartjs/1.3.0_chart.js@3.7.1+vue@3.2.18:
+    resolution: {integrity: sha512-0x6TJZlF+aDQENqzcBMS8pobzhzbJ1GTJJqouNh5Acfx1Dv/dn7ODY+NGDNjh7YdNxb8ZUxR7jCbdrtT/fE98g==}
+    peerDependencies:
+      chart.js: ^3.7.0
+      vue: ^3.0.0
+    dependencies:
+      chart.js: 3.7.1
+      vue: 3.2.18
+    dev: false
+
   /@rollup/pluginutils/4.1.1:
     resolution: {integrity: sha512-clDjivHqWGXi7u+0d2r2sBi4Ie6VLEAzWMIkvJLnDmxoOhBYOTfzGbOQBA32THHm11/LiJbd01tJUpJsbshSWQ==}
     engines: {node: '>= 8.0.0'}
@@ -791,6 +809,10 @@ packages:
       ansi-styles: 3.2.1
       escape-string-regexp: 1.0.5
       supports-color: 5.5.0
+
+  /chart.js/3.7.1:
+    resolution: {integrity: sha512-8knRegQLFnPQAheZV8MjxIXc5gQEfDFD897BJgv/klO/vtIyFFmgMXrNfgrXpbTr/XbTturxRgxIXx/Y+ASJBA==}
+    dev: false
 
   /ci-info/2.0.0:
     resolution: {integrity: sha512-5tK7EtrZ0N+OLFMthtqOj4fI2Jeb88C4CAZPu25LDVUgXJ0A3Js4PMGqrn0JU1W0Mh1/Z8wZzYPxqUrXeBboCQ==}
