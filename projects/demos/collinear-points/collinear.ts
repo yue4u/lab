@@ -14,9 +14,7 @@ export function parse(text: string) {
     .filter((x): x is Point => Boolean(x));
 }
 
-const distance = (p1: Point, p2: Point) =>
-  (p2.y - p1.y) ** 2 + (p2.x - p1.x) ** 2;
-
+const cmp = (p1: Point, p2: Point) => p1.x >= p2.x && p1.y >= p2.y;
 export function getSegments(points: Point[]) {
   const items: [Point, Point][] = [];
   let i = 1;
@@ -27,7 +25,7 @@ export function getSegments(points: Point[]) {
 
     points.forEach((p2, i2) => {
       if (i2 === i1) return;
-      if (p1.x >= p2.x && p1.y >= p2.y) return;
+      if (cmp(p1, p2)) return;
       // slope calculation seems cacheable?
       const slope = (p2.y - p1.y) / (p2.x - p1.x);
       const exist = map.get(slope) ?? [];
@@ -38,9 +36,7 @@ export function getSegments(points: Point[]) {
       if (value.length < 3) return;
 
       // distance calculation seems cacheable?
-      const sorted = value.sort(
-        (a, b) => distance(points[a], p1) - distance(points[b], p1)
-      );
+      const sorted = value.sort((a, b) => (cmp(points[a], points[b]) ? 1 : -1));
       items.push([p1, points[sorted.pop()!]]);
       i++;
     });
