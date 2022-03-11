@@ -7,6 +7,10 @@ import reactRefresh from "@vitejs/plugin-react-refresh";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  root: path.resolve(__dirname, "site"),
+  define: {
+    "import.meta.vitest": false,
+  },
   plugins: [
     vue(),
     reactRefresh(),
@@ -27,11 +31,15 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, ".."),
+      "@": path.resolve(__dirname, "."),
     },
   },
   build: {
     emptyOutDir: true,
-    outDir: path.resolve(__dirname, "../dist"),
+    outDir: path.resolve(__dirname, "./dist"),
+  },
+  test: {
+    globals: true,
+    includeSource: ["projects/**/*.ts"],
   },
 });
