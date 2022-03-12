@@ -58,30 +58,6 @@ export class BoardV2 {
     return new BoardV2({ source: text, dimension, blank, data });
   }
 
-  static fromFlatMap(text: string) {
-    const [n, ...lines] = text.split("\n");
-    const dimension = Number(n);
-    let blank: number | undefined = undefined;
-    const data = lines
-      .flatMap((l, i) => {
-        if (i >= dimension) return null;
-        const nums = l
-          .trim()
-          .split(/\s+/g)
-          .map((cell, j) => {
-            const num = Number(cell);
-            if (num === 0) {
-              blank = i * dimension + j;
-            }
-            return num;
-          });
-        return nums;
-      })
-      .filter((l): l is number => Number.isInteger(l));
-    if (!blank) throw Error("no blank found");
-    return new BoardV2({ source: text, dimension, blank, data });
-  }
-
   static get ops() {
     return [
       [1, 0],
@@ -132,7 +108,6 @@ export class BoardV2 {
       const [blankI, blankJ] = this.blank;
       const [movedX, movedY] = [blankI + x, blankJ + y];
       if (!this.inBoard(movedX, movedY)) continue;
-      // https://github.com/microsoft/TypeScript-DOM-lib-generator/issues/1237
       const moved: number[] = [...this.data];
       const movedIdx = this.dimension * movedX + movedY;
       const blankIdx = this.dimension * blankI + blankJ;
@@ -153,5 +128,30 @@ export class BoardV2 {
       return acc + (cell === expected ? 0 : 1);
     }, 0);
     return this.cache.hamming;
+  }
+
+  twin(): BoardV2 {
+    const [blankI, blankJ] = this.blank;
+    const blankIdx = this.dimension * blankI + blankJ;
+    const twinData = [...this.data];
+    let i = -1;
+    let swapIdx: number | null = null;
+    while (true) {
+      i++;
+      if (i === blankIdx) continue;
+      if (swapIdx !== null) {
+        const tmp = twinData[swapIdx];
+        twinData[swapIdx] = twinData[i];
+        twinData[i] = tmp;
+        break;
+      } else {
+        swapIdx = i;
+      }
+    }
+    return new BoardV2({
+      dimension: this.dimension,
+      data: twinData,
+      blank: this.blank,
+    });
   }
 }

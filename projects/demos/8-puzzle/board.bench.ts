@@ -19,10 +19,6 @@ suite(
     tests.map(BoardV2.from);
   }),
 
-  add("BoardV2 fromFlatMap", () => {
-    tests.map(BoardV2.fromFlatMap);
-  }),
-
   cycle(),
   complete()
 );

@@ -7,17 +7,24 @@
             rel="noopener noreferrer"
         >https://coursera.cs.princeton.edu/algs4/assignments/collinear/specification.php</a>
     </p>
-
-    <p class="test-container">
-        <button
-            @click="input = val"
-            :disabled="input === val"
-            :key="key"
-            v-for="[key, val] in tests"
-        >{{ key }}</button>
-        <button @click="points = randomCase()">random</button>
-    </p>
-    <textarea v-model="input" />
+    <div class="input">
+        <select
+            class="test-container"
+            @change="
+                // @ts-expect-error
+                input = $event.target.value ?? randomCase()
+            "
+        >
+            <option
+                :disabled="input === val"
+                :value="val"
+                :key="key"
+                v-for="[key, val] in tests"
+            >{{ key }}</option>
+            <option :value="undefined">random</option>
+        </select>
+        <textarea v-model="input" />
+    </div>
     <p v-if="NSegments">Random: should have more than {{ NSegments }} segments</p>
 
     <vue3-chart-js
@@ -38,7 +45,7 @@ import { random, randomInt } from '@/site/utils'
 import { Point, parse, getSegments } from './collinear'
 
 const chartRef = ref<any>(null)
-const tests = (Object.entries(import.meta.glob('./collinear/*.txt', { assert: { type: 'raw' } })) as any as [string, string][]).sort(t => t[0])
+const tests = (Object.entries(import.meta.glob('./collinear/*.txt', { assert: { type: 'raw' } })) as any as [string, string][]).sort()
 
 const MAX = 32767;
 const input = ref(tests[0][1])
@@ -157,6 +164,11 @@ const options: ChartOptions = {
 .chart {
     width: 500px;
     height: 500px;
+}
+.input {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
 }
 .test-container {
     width: inherit;

@@ -19,16 +19,36 @@ class SearchNode {
     this.current = current;
     this.priority = current.manhattan + this.moves;
   }
+
+  steps() {
+    return Array.from(this.solution());
+  }
+
+  stepsToString() {
+    return this.steps()
+      .map((b) => b?.toString())
+      .join("\n---\n");
+  }
+
+  *solution(): IterableIterator<Board | null> {
+    let node: SearchNode = this;
+    const steps: Board[] = [];
+    while (true) {
+      steps.unshift(node.current);
+      if (!node.prev) break;
+      node = node.prev;
+    }
+    for (const board of steps) {
+      yield board;
+    }
+  }
 }
 
-export class Solver {
-  _board: Board;
+export class AStar {
   _pq: MinPriorityQueue<SearchNode>;
-  solved?: SearchNode;
-  seen = new Set<string>();
+  _seen = new Set<string>();
 
   constructor(board: Board) {
-    this._board = board;
     this._pq = new MinPriorityQueue<SearchNode>({
       priority: (node) => node.priority,
     });
@@ -39,12 +59,55 @@ export class Solver {
         moves: 0,
       })
     );
-    this.seen.add(board.id);
+    this._seen.add(board.id);
+  }
+
+  step(): SearchNode | null {
+    if (this._pq.isEmpty()) return null;
+
+    const { element: node } =
+      this._pq.dequeue() as PriorityQueueItem<SearchNode>;
+
+    if (node.current.isGoal) {
+      return node;
+    }
+
+    for (const neighbor of node.current.neighbors()) {
+      const id = neighbor.id;
+      if (this._seen.has(id)) continue;
+      this._seen.add(id);
+      this._pq.enqueue(
+        new SearchNode({
+          prev: node,
+          current: neighbor,
+          moves: node.moves + 1,
+        })
+      );
+    }
+
+    return null;
+  }
+}
+
+interface SolverOptions {
+  maxSearchIteration?: number;
+}
+
+export class Solver {
+  _main: AStar;
+  _twin: AStar;
+  solved?: SearchNode | null;
+  maxSearchIteration?: number;
+
+  constructor(board: Board, options?: SolverOptions) {
+    this._main = new AStar(board);
+    this._twin = new AStar(board.twin());
+    this.maxSearchIteration = options?.maxSearchIteration;
     this.solve();
   }
 
-  static fromPuzzle(source: string) {
-    return new Solver(Board.from(source));
+  static fromPuzzle(source: string, options?: SolverOptions) {
+    return new Solver(Board.from(source), options);
   }
 
   get solvable() {
@@ -56,52 +119,17 @@ export class Solver {
   }
 
   solve() {
-    while (!this._pq.isEmpty()) {
-      const { element: node } =
-        this._pq.dequeue() as PriorityQueueItem<SearchNode>;
-      if (node.current.isGoal) {
-        this.solved = node;
-        return node;
-      }
-      for (const neighbor of node.current.neighbors()) {
-        const id = neighbor.id;
-        if (this.seen.has(id)) {
-          continue;
-        }
-        this.seen.add(id);
-        this._pq.enqueue(
-          new SearchNode({
-            prev: node,
-            current: neighbor,
-            moves: node.moves + 1,
-          })
-        );
-      }
+    let i = 0;
+    while (true) {
+      if (this.maxSearchIteration && i > this.maxSearchIteration) return;
+      this.solved = this._main.step();
+      if (this.solved) return;
+      if (this._twin.step()) return;
+      i++;
     }
-  }
-
-  steps() {
-    const init = this._board;
-    const steps = Array.from(this.solution());
-    return [init, ...steps];
   }
 
   stepsToString() {
-    return this.steps()
-      .map((b) => b?.toString())
-      .join("\n---\n");
-  }
-
-  *solution(): IterableIterator<Board | null> {
-    if (!this.solved) return null;
-    let node = this.solved;
-    const steps: Board[] = [];
-    while (node.prev) {
-      steps.unshift(node.current);
-      node = node.prev;
-    }
-    for (const board of steps) {
-      yield board;
-    }
+    return this.solved?.stepsToString();
   }
 }
