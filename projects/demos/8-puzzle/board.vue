@@ -1,6 +1,6 @@
 <template>
     <div class="data">
-        <span :class="['cell', { match: n === i + 1 }]" v-for="(n, i) of data">{{ n }}</span>
+        <span :class="['cell', { match: n === i + 1 }]" v-for="(n, i) of data">{{ n || "" }}</span>
     </div>
 </template>
 
