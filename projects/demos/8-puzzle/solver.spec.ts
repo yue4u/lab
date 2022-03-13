@@ -140,10 +140,10 @@ describe("solver", () => {
   });
 
   Object.entries(tests).forEach(([file, puzzle]) => {
-    const unsolvable = file.includes("unsolvable");
-    const moves = unsolvable
-      ? -1
-      : Number(file.match(/.+?0*?(?<moves>\d+).txt/)?.groups?.moves);
+    const solvable = !file.includes("unsolvable");
+    const moves = solvable
+      ? Number(file.match(/.+?0*?(?<moves>\d+).txt/)?.groups?.moves)
+      : -1;
 
     if (moves > 30 && !process.env.SLOW_TEST) {
       console.log(`skip ${file}`);
@@ -151,14 +151,7 @@ describe("solver", () => {
     }
     test.concurrent(file, () => {
       const solver = Solver.fromPuzzle(puzzle as any as string);
-
-      if (file.includes("unsolvable")) {
-        expect(solver.solvable).toBe(false);
-        expect(solver.moves).toBe(-1);
-        return;
-      }
-
-      expect(solver.solvable).toBe(true);
+      expect(solver.solvable).toBe(solvable);
       expect(solver.moves).toBe(moves);
     });
   });
