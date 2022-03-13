@@ -145,7 +145,7 @@ describe("solver", () => {
       ? -1
       : Number(file.match(/.+?0*?(?<moves>\d+).txt/)?.groups?.moves);
 
-    if (moves > 30 || process.env.SLOW_TEST) {
+    if (moves > 30 && !process.env.SLOW_TEST) {
       console.log(`skip ${file}`);
       return;
     }
@@ -158,17 +158,8 @@ describe("solver", () => {
         return;
       }
 
-      const moves = Number(
-        file.match(/.+?0*?(?<moves>\d+).txt/)?.groups?.moves
-      );
-
-      if (moves <= 30 || process.env.SLOW_TEST) {
-        expect(solver.solvable).toBe(true);
-        expect(solver.moves).toBe(moves);
-        return;
-      }
-
-      throw new Error(`file ${file} not tested`);
+      expect(solver.solvable).toBe(true);
+      expect(solver.moves).toBe(moves);
     });
   });
 });
