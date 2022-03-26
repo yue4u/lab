@@ -5,6 +5,7 @@ importers:
   .:
     specifiers:
       '@sveltejs/vite-plugin-svelte': ^1.0.0-next.39
+      '@types/marked': ^4.0.3
       '@types/node': ^16.11.26
       '@types/react': ^17.0.39
       '@types/react-dom': ^17.0.13
@@ -13,6 +14,7 @@ importers:
       '@vue/compiler-sfc': ^3.2.31
       benny: ^3.7.1
       css-doodle: ^0.26.1
+      marked: ^4.0.12
       patch-package: ^6.4.7
       react: ^17.0.2
       react-dom: ^17.0.2
@@ -24,12 +26,14 @@ importers:
       vitest: ^0.6.0
       vue: ^3.2.31
     dependencies:
+      marked: 4.0.12
       patch-package: 6.4.7
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       svelte: 3.46.4
     devDependencies:
       '@sveltejs/vite-plugin-svelte': 1.0.0-next.39_svelte@3.46.4+vite@2.8.6
+      '@types/marked': 4.0.3
       '@types/node': 16.11.26
       '@types/react': 17.0.39
       '@types/react-dom': 17.0.13
@@ -161,6 +165,12 @@ importers:
 
   site:
     specifiers: {}
+
+  tmp/kd-trees:
+    specifiers:
+      highcharts: ^10.0.0
+    dependencies:
+      highcharts: 10.0.0
 
 packages:
 
@@ -689,6 +699,10 @@ packages:
   /@types/history/4.7.9:
     resolution: {integrity: sha512-MUc6zSmU3tEVnkQ78q0peeEjKWPUADMlC/t++2bI8WnAG2tvYRPIgHG8lWkXwqc8MsUF6Z2MOf+Mh5sazOmhiQ==}
     dev: false
+
+  /@types/marked/4.0.3:
+    resolution: {integrity: sha512-HnMWQkLJEf/PnxZIfbm0yGJRRZYYMhb++O9M36UCTA9z53uPvVoSlAwJr3XOpDEryb7Hwl1qAx/MV6YIW1RXxg==}
+    dev: true
 
   /@types/node/16.11.26:
     resolution: {integrity: sha512-GZ7bu5A6+4DtG7q9GsoHXy3ALcgeIHP4NnL0Vv2wu0uUB/yQex26v0tf6/na1mm0+bS9Uw+0DFex7aaKr2qawQ==}
@@ -1478,6 +1492,10 @@ packages:
     dependencies:
       function-bind: 1.1.1
 
+  /highcharts/10.0.0:
+    resolution: {integrity: sha512-a14PrTraVaoSNyaRPhLF/jJ3/09rJwfUZedLgZOkzozGz4K/H8WtWNJtUZt/tc5QiJkaZHw4YX7vvuO98s+EoA==}
+    dev: false
+
   /history/4.10.1:
     resolution: {integrity: sha512-36nwAD620w12kuzPAsyINPWJqlNbij+hpK1k9XRloDtym8mxzGYl2c17LnV6IAGB2Dmg4tEa7G7DlawS0+qjew==}
     dependencies:
@@ -1714,6 +1732,12 @@ packages:
     dependencies:
       sourcemap-codec: 1.4.8
     dev: true
+
+  /marked/4.0.12:
+    resolution: {integrity: sha512-hgibXWrEDNBWgGiK18j/4lkS6ihTe9sxtV4Q1OQppb/0zzyPSzoFANBa5MfsG/zgsWklmNnhm0XACZOH/0HBiQ==}
+    engines: {node: '>= 12'}
+    hasBin: true
+    dev: false
 
   /micromatch/4.0.4:
     resolution: {integrity: sha512-pRmzw/XUcwXGpD9aI9q/0XOwLNygjETJ8y0ao0wdqprrzDa4YnxLcz7fQRZr8voh8V10kGhABbNcHVk5wHgWwg==}
