@@ -26,7 +26,10 @@ Previous art:
 3. [\`GoogleChromeLabs/squoosh/blob/dev/codecs/avif\`](https://github.com/GoogleChromeLabs/squoosh/blob/dev/codecs/avif/)
 
 Existing libavif's wasm build doesn't seem to support y4m input yet.
-It looks doable via adapting [GoogleChromeLabs/squoosh/blob/dev/codecs/avif/enc/avif_enc.cpp](https://github.com/GoogleChromeLabs/squoosh/blob/dev/codecs/avif/enc/avif_enc.cpp) with [AOMediaCodec/libavif/apps/avifenc.c](https://github.com/AOMediaCodec/libavif/blob/21961f41f5605e96a5a5a4bed88d899131102a7a/apps/avifenc.c) then modify \`y4mRead\` in [AOMediaCodec/libavif/apps/shared/y4m.c](https://github.com/AOMediaCodec/libavif/blob/21961f41f5605e96a5a5a4bed88d899131102a7a/apps/shared/y4m.c) to accept in-memory file. As soon as the adapted version can build successfully the job is almost done.
+It looks doable via adapting 
+1. [GoogleChromeLabs/squoosh/blob/dev/codecs/avif/enc/avif_enc.cpp](https://github.com/GoogleChromeLabs/squoosh/blob/dev/codecs/avif/enc/avif_enc.cpp)
+2. [AOMediaCodec/libavif/apps/avifenc.c](https://github.com/AOMediaCodec/libavif/blob/21961f41f5605e96a5a5a4bed88d899131102a7a/apps/avifenc.c) 
+3. [AOMediaCodec/libavif/apps/shared/y4m.c](https://github.com/AOMediaCodec/libavif/blob/21961f41f5605e96a5a5a4bed88d899131102a7a/apps/shared/y4m.c) 
 `;
 
 export const template = () => html`<lab-md>${content}</lab-md>`;
