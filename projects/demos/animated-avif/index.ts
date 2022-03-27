@@ -1,7 +1,7 @@
-import { html } from "@/site/core";
+import { md } from "@/site/core";
 import inui from "./inui.avif?url";
 
-const content = `
+export const template = md`
 # Animated avif
 
 ## Demo
@@ -31,5 +31,3 @@ It looks doable via adapting
 2. [AOMediaCodec/libavif/apps/avifenc.c](https://github.com/AOMediaCodec/libavif/blob/21961f41f5605e96a5a5a4bed88d899131102a7a/apps/avifenc.c) 
 3. [AOMediaCodec/libavif/apps/shared/y4m.c](https://github.com/AOMediaCodec/libavif/blob/21961f41f5605e96a5a5a4bed88d899131102a7a/apps/shared/y4m.c) 
 `;
-
-export const template = () => html`<lab-md>${content}</lab-md>`;

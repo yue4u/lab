@@ -72,3 +72,8 @@ export function raw(templateString: TemplateStringsArray, ...rest: any[]) {
 
 export const html = raw;
 export const css = raw;
+export const md =
+  (...args: Parameters<typeof raw>) =>
+  () => {
+    return `<lab-md>${raw(...args)}</lab-md>`;
+  };
