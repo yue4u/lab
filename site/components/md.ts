@@ -4,8 +4,8 @@ import { marked } from "marked";
 export const template = () => html`<slot />`;
 
 export const style = css`
+  @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap");
   lab-md {
-    @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap");
     font-family: "JetBrains Mono", monospace;
     word-break: break-word;
   }
