@@ -1,0 +1,9 @@
+{
+  "name": "text-range",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "license": "MIT",
+  "dependencies": {
+    "@vueform/slider": "^2.0.9"
+  }
+}
