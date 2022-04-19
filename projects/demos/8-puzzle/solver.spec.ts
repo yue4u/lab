@@ -136,7 +136,7 @@ describe("solver", () => {
   });
 
   const tests = import.meta.glob("./8puzzle/puzzle*.txt", {
-    assert: { type: "raw" },
+    as: "raw",
   });
 
   Object.entries(tests).forEach(([file, puzzle]) => {

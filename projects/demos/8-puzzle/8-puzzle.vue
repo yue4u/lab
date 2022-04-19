@@ -1,26 +1,15 @@
 <template>
     <p>
         implements
-        <a
-            href="https://coursera.cs.princeton.edu/algs4/assignments/8puzzle/specification.php"
-            target="_blank"
-            rel="noopener noreferrer"
-        >https://coursera.cs.princeton.edu/algs4/assignments/8puzzle/specification.php</a>
+        <a href="https://coursera.cs.princeton.edu/algs4/assignments/8puzzle/specification.php" target="_blank"
+            rel="noopener noreferrer">https://coursera.cs.princeton.edu/algs4/assignments/8puzzle/specification.php</a>
     </p>
     <div class="input">
-        <select
-            class="test-container"
-            @change="
-                // @ts-expect-error
-                board = $event.target.value
-            "
-        >
-            <option
-                :disabled="board === val"
-                :key="key"
-                :value="val"
-                v-for="[key, val] in tests"
-            >{{ key }}</option>
+        <select class="test-container" @change="
+            // @ts-expect-error
+            board = $event.target.value
+        ">
+            <option :disabled="board === val" :key="key" :value="val" v-for="[key, val] in tests">{{ key }}</option>
         </select>
         <textarea v-model="board" :rows="3"></textarea>
     </div>
@@ -38,7 +27,7 @@ import Board from './board.vue'
 import puzzle5 from './8puzzle/puzzle05.txt?raw'
 import { Solver } from './solver'
 
-const tests = (Object.entries(import.meta.glob('./8puzzle/puzzle*.txt', { assert: { type: 'raw' } })) as any as [string, string][]).sort()
+const tests = (Object.entries(import.meta.glob('./8puzzle/puzzle*.txt', { as: 'raw' })) as any as [string, string][]).sort()
 
 const board = ref(puzzle5)
 const solver = computed(() => {
@@ -53,6 +42,7 @@ const solver = computed(() => {
     display: flex;
     flex-direction: column;
 }
+
 .steps {
     display: flex;
     justify-content: flex-start;

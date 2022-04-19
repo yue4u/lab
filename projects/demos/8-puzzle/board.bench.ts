@@ -4,7 +4,7 @@ import { BoardV2 } from "./board-v2";
 
 const tests = Object.values(
   import.meta.glob("./8puzzle/puzzle*.txt", {
-    assert: { type: "raw" },
+    as: "raw",
   })
 ) as any as string[];
 
