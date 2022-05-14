@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineProps, onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import type { PDFPageProxy } from './types'
 
 const props = defineProps<{ page: PDFPageProxy, index: number, name: string }>()
