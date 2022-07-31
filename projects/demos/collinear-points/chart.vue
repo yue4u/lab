@@ -28,7 +28,7 @@ import { random, randomInt } from '@/site/utils'
 import { Point, parse, getSegments } from './collinear'
 
 const chartRef = ref<any>(null)
-const tests = (Object.entries(import.meta.glob('./collinear/*.txt', { as: 'raw' })) as any as [string, string][]).sort()
+const tests = (Object.entries(import.meta.glob('./collinear/*.txt', { as: 'raw', eager: true }))).sort()
 
 const MAX = 32767;
 const input = ref(tests[0][1])
