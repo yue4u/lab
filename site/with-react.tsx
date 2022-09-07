@@ -1,3 +1,4 @@
+// @ts-expect-error
 import React, { ReactNode } from "react";
 import ReactDOM from "react-dom";
 import type { Component } from "@/site/core";

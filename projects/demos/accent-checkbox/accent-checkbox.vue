@@ -12,19 +12,12 @@
   </div>
   <!-- <img class="media" autoplay muted v-if="debugSrc" :src="debugSrc" /> -->
   <div class="canvas">
-    <input
-      class="best-checkbox"
-      v-for="c in colors"
-      :style="{ '--c': c }"
-      :checked="true"
-      type="checkbox"
-    />
+    <input class="best-checkbox" v-for="c in colors" :style="{ '--c': c }" :checked="true" type="checkbox" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import type { ChangeEventHandler } from 'react'
 import { createFFmpeg } from '@ffmpeg/ffmpeg';
 
 if (!crossOriginIsolated) {
@@ -53,7 +46,8 @@ onMounted(async () => {
 
 const cache = new Map<number, string[]>();
 
-const handleFile: ChangeEventHandler<HTMLInputElement> = async (event) => {
+// @ts-expect-error
+const handleFile = async (event) => {
   const [file] = Array.from(event.target.files || [])
   if (!file) return
   await process();

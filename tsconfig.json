@@ -7,13 +7,14 @@
     "jsx": "preserve",
     "sourceMap": true,
     "resolveJsonModule": true,
+    "skipLibCheck": true,
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
-    "types": ["vite/client", "vitest/importMeta", "youtube"],
+    "types": ["vite/client", "vitest/importMeta"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "react": ["./site/disable-react-jsx.d.ts"]
+      "react": ["site/types/disable-react-jsx.d.ts"]
     }
   },
   "include": [

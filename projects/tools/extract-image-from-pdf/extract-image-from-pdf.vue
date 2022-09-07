@@ -13,8 +13,8 @@
 
 <script setup lang="ts">
 import { ref, nextTick } from 'vue'
-import type { ChangeEventHandler } from 'react'
 import * as PDFJS from 'pdfjs-dist'
+// @ts-expect-error
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.entry';
 import pdfPage from './pdf-page.vue'
 import type { PDFPageProxy } from './types'
@@ -27,11 +27,13 @@ const error = ref<string | null>(null)
 const numPages = ref<number | null>(null)
 const pdfPages = ref<PDFPageProxy[]>([]);
 
-const handleFile: ChangeEventHandler<HTMLInputElement> = async (event) => {
+const handleFile = async (event: any) => {
   state.value = 'working'
   const [file] = Array.from(event.target.files || [])
   if (!file) return
+  // @ts-expect-error
   name.value = file.name
+  // @ts-expect-error
   await extract(file)
 }
 
