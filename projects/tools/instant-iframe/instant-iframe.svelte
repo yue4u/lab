@@ -1,4 +1,7 @@
 <script lang="ts">
+  if (crossOriginIsolated) {
+    location.reload();
+  }
   export let src: string;
   export let val: string;
   function update() {

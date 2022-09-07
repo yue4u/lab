@@ -26,6 +26,10 @@
 import { onMounted, ref } from 'vue'
 import type { ChangeEventHandler } from 'react'
 import { createFFmpeg } from '@ffmpeg/ffmpeg';
+
+if (!crossOriginIsolated) {
+  location.reload()
+}
 // not work for prod
 // import corePath from '@ffmpeg/core/dist/ffmpeg-core.js?url'
 
@@ -131,10 +135,12 @@ const handleFile: ChangeEventHandler<HTMLInputElement> = async (event) => {
   justify-content: space-between;
   gap: 1rem;
 }
+
 .canvas {
   display: grid;
   grid-template: repeat(v-bind(h), 13px) / repeat(v-bind(w), 13px);
 }
+
 .media {
   max-width: 100%;
   max-height: 10vh;
@@ -146,6 +152,7 @@ const handleFile: ChangeEventHandler<HTMLInputElement> = async (event) => {
   margin: 2px;
   text-overflow: ellipsis;
 }
+
 .best-checkbox {
   /* transform: scale(0.8); */
   accent-color: rgba(var(--c));
