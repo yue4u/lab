@@ -1,0 +1,1 @@
+// disable global react types by default

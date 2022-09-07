@@ -12,7 +12,8 @@
     "types": ["vite/client", "vitest/importMeta", "youtube"],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "react": ["./site/disable-react-jsx.d.ts"]
     }
   },
   "include": [

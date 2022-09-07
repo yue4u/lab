@@ -1,9 +1,12 @@
 import path from "path";
-import { defineConfig } from "vite";
+import { defineConfig, createFilter } from "vite";
 import vue from "@vitejs/plugin-vue";
 import { svelte } from "@sveltejs/vite-plugin-svelte";
 import sveltePreprocess from "svelte-preprocess";
 import react from "@vitejs/plugin-react";
+import preact from "@preact/preset-vite";
+
+const preactProjects = /img-diff/;
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -13,7 +16,12 @@ export default defineConfig({
   },
   plugins: [
     vue(),
-    react(),
+    preact({
+      include: preactProjects,
+    }),
+    react({
+      exclude: preactProjects,
+    }),
     {
       name: "configure-server",
 

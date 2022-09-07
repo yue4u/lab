@@ -1,0 +1,78 @@
+diff --git a/dist/cjs/index.js b/dist/cjs/index.js
+index 0a6cc5937a4ecc7873c92d6c7bfc13b21fe1f87f..26861cb33d6f91c0d898adc5d19f71b9dca44c79 100644
+--- a/dist/cjs/index.js
++++ b/dist/cjs/index.js
+@@ -132,20 +132,20 @@ function preactPlugin(_a) {
+         }
+     };
+     return [
+-        {
+-            name: "preact:config",
+-            config: function () {
+-                return {
+-                    resolve: {
+-                        alias: {
+-                            "react-dom/test-utils": "preact/test-utils",
+-                            "react-dom": "preact/compat",
+-                            react: "preact/compat"
+-                        }
+-                    }
+-                };
+-            }
+-        },
++        // {
++        //     name: "preact:config",
++        //     config: function () {
++        //         return {
++        //             resolve: {
++        //                 alias: {
++        //                     "react-dom/test-utils": "preact/test-utils",
++        //                     "react-dom": "preact/compat",
++        //                     react: "preact/compat"
++        //                 }
++        //             }
++        //         };
++        //     }
++        // },
+         jsxPlugin,
+         devtools_js_1.preactDevtoolsPlugin({ injectInProd: devtoolsInProd, shouldTransform: shouldTransform }),
+         vite_1["default"]({ include: include, exclude: exclude }),
+diff --git a/dist/esm/index.mjs b/dist/esm/index.mjs
+index 56bfa537b8a57370d3411e8df45dbda95dcbb0e6..89180230349966e7c0bbc868988cba5bd233deb2 100644
+--- a/dist/esm/index.mjs
++++ b/dist/esm/index.mjs
+@@ -126,20 +126,20 @@ function preactPlugin(_a) {
+         }
+     };
+     return [
+-        {
+-            name: "preact:config",
+-            config: function () {
+-                return {
+-                    resolve: {
+-                        alias: {
+-                            "react-dom/test-utils": "preact/test-utils",
+-                            "react-dom": "preact/compat",
+-                            react: "preact/compat"
+-                        }
+-                    }
+-                };
+-            }
+-        },
++        // {
++        //     name: "preact:config",
++        //     config: function () {
++        //         return {
++        //             resolve: {
++        //                 alias: {
++        //                     "react-dom/test-utils": "preact/test-utils",
++        //                     "react-dom": "preact/compat",
++        //                     react: "preact/compat"
++        //                 }
++        //             }
++        //         };
++        //     }
++        // },
+         jsxPlugin,
+         preactDevtoolsPlugin({ injectInProd: devtoolsInProd, shouldTransform: shouldTransform }),
+         prefresh({ include: include, exclude: exclude }),
