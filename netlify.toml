@@ -4,7 +4,7 @@
   command = "npx pnpm install --store=node_modules/.pnpm-store && npx pnpm build"
 
 [[headers]]
-for = "/*"
+for = "/demos/accent-checkbox"
   [headers.values]
     Cross-Origin-Opener-Policy = "same-origin"
     Cross-Origin-Embedder-Policy = "require-corp"
