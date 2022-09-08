@@ -1,0 +1,29 @@
+.options {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    place-items: center;
+    gap: 16px;
+}
+
+.threshold {
+    width: 100%;
+}
+
+.img-input {
+    border: none;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 12px;
+}
+
+.img {
+    object-fit: contain;
+    max-width: 100%;
+}
+
+.diff-canvas {
+    width: 100%;
+}

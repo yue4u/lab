@@ -6,13 +6,18 @@ import sveltePreprocess from "svelte-preprocess";
 import react from "@vitejs/plugin-react";
 import preact from "@preact/preset-vite";
 
-const preactProjects = /img-diff/;
+const preactProjects = /img-diff.+?\.tsx?/;
 
 // https://vitejs.dev/config/
 export default defineConfig({
   root: path.resolve(__dirname, "site"),
   define: {
     "import.meta.vitest": false,
+  },
+  css: {
+    modules: {
+      localsConvention: "camelCase"
+    }
   },
   plugins: [
     vue(),
