@@ -1,7 +1,10 @@
 <template>
   <h1>GLSL Editor</h1>
   <div class="editor" ref="editorEl" />
-  <canvas class="canvas" ref="canvasEl" />
+  <div class="wrapper">
+    <canvas class="canvas" ref="canvasEl" />
+    <button class="download" @click="downloadImg">download</button>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -11,17 +14,11 @@ import { ContextMode } from 'glsl-canvas-js/dist/esm/context/context';
 import * as monaco from "monaco-editor-core";
 import EditorWorker from "monaco-editor-core/esm/vs/editor/editor.worker?worker";
 import { conf, language } from "./glsl-language";
+import init from "./init.glsl?raw";
 
 const canvasEl = ref<HTMLCanvasElement | null>(null);
 const editorEl = ref<HTMLDivElement | null>(null);
-
-const init = `#version 300 es
-precision highp float;
-out vec4 fragColor;
-uniform vec2 u_resolution;
-void main() {
-    fragColor = vec4(1.0, 0.0, 0.0, 1.0);
-}`;
+const canvasRef = ref<Canvas | null>(null);
 
 self.MonacoEnvironment = {
   getWorker() {
@@ -38,6 +35,7 @@ onMounted(() => {
     antialias: true,
     mode: ContextMode.Flat,
   });
+  canvasRef.value = canvas;
 
   const editor = monaco.editor.create(editorEl.value, {
     value: init,
@@ -55,11 +53,33 @@ onMounted(() => {
     canvas.load(editor.getValue());
   })
 })
+
+function downloadImg() {
+  if (!canvasEl.value) return;
+  if (!canvasRef.value) return;
+  // @ts-expect-error
+  canvasRef.value.render();
+  Object.assign(document.createElement('a'), {
+    href: canvasEl.value.toDataURL(),
+    download: `glsl-canvas-${Date.now()}.png`,
+  }).click();
+}
 </script>
 
 <style scoped>
 .editor {
   min-height: 20em;
+}
+
+.wrapper {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: left;
+}
+
+.download {
+  height: fit-content;
 }
 
 .canvas {
