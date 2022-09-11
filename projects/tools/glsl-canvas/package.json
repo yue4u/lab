@@ -1,0 +1,10 @@
+{
+  "name": "glsl-canvas",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "license": "MIT",
+  "devDependencies": {
+    "glsl-canvas-js": "^0.2.9",
+    "monaco-editor-core": "^0.34.0"
+  }
+}
