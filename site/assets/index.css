@@ -1,14 +1,17 @@
 html {
   font-size: 16px;
+  font-family: system-ui;
   background-color: #1f1f1f;
   margin: 0;
   color: #fff;
 }
+
 a {
   display: block;
   color: currentColor;
   text-decoration: none;
 }
+
 * {
   box-sizing: border-box;
 }
