@@ -3,7 +3,10 @@
   <div class="wrapper">
     <canvas class="canvas" ref="canvasEl" />
     <div class="editor" ref="editorEl" />
-    <button class="download" @click="downloadImg">download</button>
+    <div class="extra">
+      <button @click="downloadImg">download</button>
+      <p class="error">{{error}}</p>
+    </div>
   </div>
 </template>
 
@@ -19,6 +22,7 @@ import init from "./init.glsl?raw";
 const canvasEl = ref<HTMLCanvasElement | null>(null);
 const editorEl = ref<HTMLDivElement | null>(null);
 const canvasRef = ref<Canvas | null>(null);
+const error = ref<string | null>();
 
 self.MonacoEnvironment = {
   getWorker() {
@@ -35,6 +39,9 @@ onMounted(() => {
     antialias: true,
     mode: ContextMode.Flat,
   });
+  canvas.on('error', ({ error: e }: any) => {
+    error.value = e;
+  })
   canvasRef.value = canvas;
 
   monaco.editor.defineTheme('vs-dark-transparent', {
@@ -58,8 +65,9 @@ onMounted(() => {
   monaco.languages.setLanguageConfiguration("glsl", conf);
   monaco.languages.setMonarchTokensProvider("glsl", language);
 
-  editor.getModel()?.onDidChangeContent(() => {
-    canvas.load(editor.getValue());
+  editor.getModel()?.onDidChangeContent(async () => {
+    const ok = await canvas.load(editor.getValue());
+    if (ok) error.value = null;
   })
 })
 
@@ -87,7 +95,7 @@ function downloadImg() {
   display: grid;
   grid-template-areas:
     "canvas editor"
-    "download editor";
+    "extra editor";
   grid-template-columns: 500px 1fr;
   grid-template-rows: 500px auto;
   justify-content: left;
@@ -97,13 +105,20 @@ function downloadImg() {
   .wrapper {
     grid-template-areas:
       "canvas canvas"
-      "download download"
+      "extra extra"
       "editor editor";
   }
 }
 
-.download {
-  grid-area: download;
+.error {
+  grid-area: error;
+  color: hotpink;
+  font-weight: bold;
+  text-align: left;
+}
+
+.extra {
+  grid-area: extra;
   margin-top: 1rem;
   height: fit-content;
   width: fit-content;
