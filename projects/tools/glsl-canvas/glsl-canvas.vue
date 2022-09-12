@@ -1,8 +1,8 @@
 <template>
   <h1>GLSL Editor</h1>
-  <div class="editor" ref="editorEl" />
   <div class="wrapper">
     <canvas class="canvas" ref="canvasEl" />
+    <div class="editor" ref="editorEl" />
     <button class="download" @click="downloadImg">download</button>
   </div>
 </template>
@@ -37,12 +37,21 @@ onMounted(() => {
   });
   canvasRef.value = canvas;
 
+  monaco.editor.defineTheme('vs-dark-transparent', {
+    base: 'vs-dark',
+    inherit: true,
+    colors: {
+      "editor.background": '#00000000',
+    },
+    rules: [],
+  });
+
   const editor = monaco.editor.create(editorEl.value, {
     value: init,
     minimap: { enabled: false },
     automaticLayout: true,
     language: "glsl",
-    theme: "vs-dark",
+    theme: "vs-dark-transparent",
   });
 
   monaco.languages.register({ id: "glsl" });
@@ -68,21 +77,40 @@ function downloadImg() {
 
 <style scoped>
 .editor {
-  min-height: 20em;
+  grid-area: editor;
+  height: 80vh;
 }
 
 .wrapper {
+  height: 100%;
   margin-top: 1rem;
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-areas:
+    "canvas editor"
+    "download editor";
+  grid-template-columns: 500px 1fr;
+  grid-template-rows: 500px auto;
   justify-content: left;
 }
 
+@media screen and (width<=1400px) {
+  .wrapper {
+    grid-template-areas:
+      "canvas canvas"
+      "download download"
+      "editor editor";
+  }
+}
+
 .download {
+  grid-area: download;
+  margin-top: 1rem;
   height: fit-content;
+  width: fit-content;
 }
 
 .canvas {
+  grid-area: canvas;
   width: 500px;
   height: 500px;
 }
