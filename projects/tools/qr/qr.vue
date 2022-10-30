@@ -69,6 +69,6 @@ const readClipboardImg = async (): Promise<Blob | undefined> => {
 }
 
 .qrcode {
-  width: 100%;
+  max-width: 100%;
 }
 </style>
