@@ -22,7 +22,8 @@ export const script: Script = {
         if (customElements.get(tag)) return tag;
 
         view("lab-loading");
-        define(await component())(tag);
+        const comp = await component();
+        define(comp.default || comp)(tag);
         return tag;
       };
       await tag().then(view);
