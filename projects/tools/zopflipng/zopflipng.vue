@@ -47,6 +47,7 @@ async function run() {
     await zopflipng.FS.writeFile(fileRef.value.name, new Uint8Array(await fileRef.value.arrayBuffer()))
     await zopflipng.callMain(['-m', fileRef.value.name, `${fileRef.value.name}-small.png`])
 
+    if (optimized.value) { URL.revokeObjectURL(optimized.value) }
     optimized.value = URL.createObjectURL(
         new Blob([zopflipng.FS.readFile(`${fileRef.value.name}-small.png`).buffer])
     )
