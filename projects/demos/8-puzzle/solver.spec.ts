@@ -149,8 +149,8 @@ describe("solver", () => {
       console.log(`skip ${file}`);
       return;
     }
-    test.concurrent(file, () => {
-      const solver = Solver.fromPuzzle(puzzle as any as string);
+    test.concurrent(file, async () => {
+      const solver = Solver.fromPuzzle(await puzzle() as any as string);
       expect(solver.solvable).toBe(solvable);
       expect(solver.moves).toBe(moves);
     });

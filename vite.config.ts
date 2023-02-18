@@ -1,5 +1,5 @@
 import path from "path";
-import { defineConfig, createFilter } from "vite";
+import { defineConfig } from "vitest/config";
 import vue from "@vitejs/plugin-vue";
 import { svelte } from "@sveltejs/vite-plugin-svelte";
 import sveltePreprocess from "svelte-preprocess";
@@ -53,6 +53,6 @@ export default defineConfig({
   },
   test: {
     globals: true,
-    includeSource: ["projects/**/*.ts"],
+    include: ["../projects/**/*.{test,spec}.ts"],
   },
 });
