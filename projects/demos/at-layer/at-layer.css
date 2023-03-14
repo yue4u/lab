@@ -1,0 +1,44 @@
+@layer root {
+  .root {
+    font-family: "Atomic Age", cursive;
+  }
+
+  @layer inner {
+    .text {
+      color: yellow;
+    }
+
+    @layer title {
+      .at-layer {
+        color: lightblue;
+        font-family: "Atomic Age", cursive;
+      }
+
+      h1 {
+        color: beige;
+      }
+    }
+  }
+
+  .at-layer {
+    color: hotpink;
+    font-family: system-ui, -apple-system;
+    font-weight: normal;
+  }
+
+  .revert-layer {
+    color: revert-layer;
+    font-family: revert-layer;
+    font-weight: revert-layer;
+  }
+}
+
+@layer root.inner2 {
+  .text {
+    color: gold;
+  }
+}
+
+.text {
+  color: salmon;
+}
