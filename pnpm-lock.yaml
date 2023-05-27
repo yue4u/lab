@@ -218,15 +218,6 @@ importers:
 
   projects/tools/sort-lines: {}
 
-  projects/tools/sunriser:
-    dependencies:
-      '@ffmpeg/core':
-        specifier: ^0.10.0
-        version: 0.10.0
-      '@ffmpeg/ffmpeg':
-        specifier: ^0.10.1
-        version: 0.10.1
-
   projects/tools/text-noise: {}
 
   projects/tools/text-range:
