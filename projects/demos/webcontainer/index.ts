@@ -18,7 +18,7 @@ export const template = () => html`<div class="container">
 <div class="editor">
 </div>
 <div class="preview">
-  <iframe src="loading.html"></iframe>
+  <iframe></iframe>
 </div>
 <div class="term">
 </div>
