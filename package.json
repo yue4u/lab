@@ -34,10 +34,5 @@
     "vite-node": "^0.29.2",
     "vitest": "^0.29.2",
     "vue": "^3.2.47"
-  },
-  "pnpm": {
-    "patchedDependencies": {
-      "@preact/preset-vite@2.3.1": "patches/@preact__preset-vite@2.3.1.patch"
-    }
   }
 }

@@ -7,15 +7,14 @@
   <p v-if="numPages">All {{ numPages }}</p>
   <p v-if="error">{{ error }}</p>
   <div class="pages">
-    <pdfPage v-for="(page,index) of pdfPages" :index="index + 1" :name="name" :page="page" />
+    <pdfPage v-for="(page, index) of pdfPages" :index="index + 1" :name="name" :page="page" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, nextTick } from 'vue'
 import * as PDFJS from 'pdfjs-dist'
-// @ts-expect-error
-import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.entry';
+import pdfjsWorker from 'pdfjs-dist/build/pdf.worker?url';
 import pdfPage from './pdf-page.vue'
 import type { PDFPageProxy } from './types'
 
