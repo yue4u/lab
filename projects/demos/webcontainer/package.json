@@ -1,0 +1,11 @@
+{
+  "name": "webcontainer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@webcontainer/api": "^1.1.3",
+    "monaco-editor-core": "^0.34.0",
+    "xterm": "^5.1.0"
+  }
+}
