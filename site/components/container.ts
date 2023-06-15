@@ -43,10 +43,16 @@ export const style = css`
   lab-container {
     display: grid;
     grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
     gap: 2rem;
+    row-gap: 0;
     margin: 0 2rem;
   }
+  lab-source-link {
+    grid-column: 2;
+  }
   lab-view {
+    grid-column: 2;
     margin-top: 2rem;
     display: block;
   }

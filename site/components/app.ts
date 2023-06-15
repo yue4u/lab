@@ -19,6 +19,7 @@ export const template = () => html`
   </lab-link>
   <lab-container>
     <lab-nav></lab-nav>
+    <lab-source-link></lab-source-link>
     <lab-view></lab-view>
   </lab-container>
 

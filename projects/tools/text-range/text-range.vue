@@ -29,6 +29,7 @@ const value = ref([5, 20]);
   --slider-tooltip-color: #000;
   --slider-tooltip-bg: var(--accent);
   --slider-connect-bg: var(--accent);
+  margin-top: 2rem;
   margin-bottom: 1rem;
 }
 
