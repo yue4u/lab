@@ -1,4 +1,4 @@
-packages":
+packages:
   - "site"
   - "projects/demos/*"
   - "projects/games/*"
