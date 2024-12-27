@@ -64,7 +64,7 @@ export function raw(templateString: TemplateStringsArray, ...rest: any[]) {
       .map((arg, i) => {
         const next = templateString[1 + i];
         const content = Array.isArray(arg) ? arg.join("") : arg;
-        return content + next ?? "";
+        return content + (next ?? "");
       })
       .join("")
   );
