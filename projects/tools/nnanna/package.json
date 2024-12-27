@@ -4,6 +4,6 @@
   "main": "index.ts",
   "license": "MIT",
   "dependencies": {
-    "nnanna": "^0.0.1"
+    "nnanna": "0.0.2"
   }
 }
