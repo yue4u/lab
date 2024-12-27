@@ -20,11 +20,13 @@
 import { ref, watch } from "vue";
 import { nnanna, annann } from "nnanna";
 
-const input = ref("");
-const result = ref("");
-const param =
-  new URL(location.href).searchParams.get("m") === "d" ? "annann" : "nnanna";
-const mode = ref<keyof typeof modes>(param);
+const param = new URL(location.href).searchParams;
+const initInput = param.get("t") ?? "";
+const input = ref(initInput);
+const result = ref(nnanna(initInput));
+const mode = ref<keyof typeof modes>(
+  param.get("m") === "d" ? "annann" : "nnanna"
+);
 const modes = { nnanna, annann };
 
 watch([input, mode], () => {
