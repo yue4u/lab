@@ -201,6 +201,12 @@ importers:
         specifier: ^2.2.0
         version: 2.2.0
 
+  projects/tools/pixelate:
+    devDependencies:
+      '@webgpu/types':
+        specifier: ^0.1.57
+        version: 0.1.57
+
   projects/tools/qr:
     dependencies:
       jsqr:
@@ -230,12 +236,6 @@ importers:
         version: 2.1.10
 
   projects/tools/timestamp: {}
-
-  projects/tools/wgpu-canvas:
-    devDependencies:
-      '@webgpu/types':
-        specifier: ^0.1.57
-        version: 0.1.57
 
   projects/tools/word-counter: {}
 
