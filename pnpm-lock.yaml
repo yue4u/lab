@@ -207,6 +207,12 @@ importers:
         specifier: ^0.1.57
         version: 0.1.57
 
+  projects/tools/pwgen:
+    dependencies:
+      pwgen.wasm:
+        specifier: ^0.0.2
+        version: 0.0.2
+
   projects/tools/qr:
     dependencies:
       jsqr:
@@ -1631,6 +1637,9 @@ packages:
 
   prop-types@15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
+
+  pwgen.wasm@0.0.2:
+    resolution: {integrity: sha512-vwCN1GEFcQzwKbGNLZuRpt97hXZq/jONB531YDo+9iWiXHmfwHsPsjZmNepNHiHGPCJd/NLex/VE416MJ+2M+g==}
 
   qrcode@1.5.4:
     resolution: {integrity: sha512-1ca71Zgiu6ORjHqFBDpnSMTR2ReToX4l1Au1VFLyVeBTFavzQnv5JxMFr3ukHVKpSrSA2MCk0lNJSykjUfz7Zg==}
@@ -3369,6 +3378,8 @@ snapshots:
       loose-envify: 1.4.0
       object-assign: 4.1.1
       react-is: 16.13.1
+
+  pwgen.wasm@0.0.2: {}
 
   qrcode@1.5.4:
     dependencies:
