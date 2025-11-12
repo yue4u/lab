@@ -36,25 +36,14 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch, watchEffect } from "vue";
-import { iterTpl as it } from "./js/iter-tpl.min";
+import { computed, ref, watchEffect } from "vue";
+import { iterTpl } from "./js/iter-tpl.min";
 import Worker from "./iter-tpl.worker?worker";
-// import implUrl from "./js/iter-tpl.min?url";
-
-let iterTpl = it;
-
-// const reinit = () => {
-//   import(`${implUrl}&d=${Date.now()}`).then((i) => {
-//     iterTpl = i.iterTpl;
-//   });
-// };
 
 const itemText = ref(["apple", "banana", "cherry"].join("\n"));
 const templateText = ref("{{ $0 }} -> {{ $1 }}");
 const r = ref(2);
-
 const mode = ref<keyof typeof modes>("combinations");
-// https://developer.mozilla.org/en-US/docs/Glossary/Base64#solution_1_%E2%80%93_escaping_the_string_before_encoding_it
 const modes = {
   combinations: iterTpl.combinations,
   permutations: iterTpl.permutations,
