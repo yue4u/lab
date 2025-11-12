@@ -16,8 +16,8 @@ export default defineConfig({
   },
   css: {
     modules: {
-      localsConvention: "camelCase"
-    }
+      localsConvention: "camelCase",
+    },
   },
   plugins: [
     vue(),
@@ -48,8 +48,13 @@ export default defineConfig({
     },
   },
   build: {
+    target: "esnext",
     emptyOutDir: true,
     outDir: path.resolve(__dirname, "./dist"),
+    rollupOptions: { external: ["express"] },
+  },
+  worker: {
+    format: "es",
   },
   test: {
     globals: true,
