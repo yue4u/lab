@@ -1,0 +1,12 @@
+package iter-tpl:iter@0.0.1;
+
+interface tools {
+    // TODO: use variant to support u32?
+    // TODO: tuple is better?
+    combinations: func(iterable: list<string>, r: u32) -> list<list<string>>;
+    permutations: func(iterable: list<string>, r: u32) -> list<list<string>>;
+}
+
+world iter {
+    export tools;
+}
