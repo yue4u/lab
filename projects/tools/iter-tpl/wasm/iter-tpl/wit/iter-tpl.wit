@@ -1,0 +1,14 @@
+package iter-tpl:main@0.0.1;
+
+interface iter-tpl {
+    combinations: func(iterable: list<string>, r: u32) -> list<list<string>>;
+    permutations: func(iterable: list<string>, r: u32) -> list<list<string>>;
+    template: func(tpl: string, array: list<string>) -> result<string, string>;
+}
+
+world main {
+    import iter-tpl:iter/tools@0.0.1;
+    import iter-tpl:tpl/template@0.0.1;
+
+    export iter-tpl;
+}

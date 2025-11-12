@@ -1,0 +1,9 @@
+package iter-tpl:tpl@0.0.1;
+
+interface template {
+    execute: func(tpl: string, array: list<string>) -> result<string, string>;
+}
+
+world tpl {
+    export template;
+}
